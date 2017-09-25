@@ -1,0 +1,21 @@
+
+apply plugin: 'application'
+sourceCompatibility = 1.5
+
+configurations {
+    compile { transitive = true }
+    runtime { transitive = true }
+}
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile project(':mail-api')
+    mainClassName = "com.alibaba.dubbo.container.Main"
+
+    compile "com.alibaba:dubbo:2.5.3"
+    compile "org.apache.zookeeper:zookeeper:$zookeeperVersion"
+    compile "com.github.sgroschupf:zkclient:$zkclientVersion"
+}

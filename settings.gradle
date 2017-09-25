@@ -1,0 +1,6 @@
+rootProject.name = 'mail'
+include 'mail-webapp'
+include 'mail-webapp'
+include 'mail-api'
+include 'mail-provider'
+
