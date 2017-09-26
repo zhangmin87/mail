@@ -21,12 +21,12 @@
     <!-- 提供方应用名称信息，这个相当于起了一个名字,我们dubbo管理页面比较清晰是哪个应该暴露出来的 -->
 
     <!-- FIXME 加载配置 -->
-    <context:property-placeholder location="classpath:env/local/*.properties"/>
+    <context:property-placeholder location="classpath:env/local/zk.properties"/>
     <dubbo:application name="mail_dubbo_provider"/>
     <!-- 使用zookeeper注册中心暴露服务地址 -->
     <dubbo:registry protocol="zookeeper" address="${zk.address}" check="false"  register=""/>
     <!-- 要暴露的服务接口 -->
-    <dubbo:service interface="start.service.Test" ref="test"/>
+    <dubbo:service interface="start.service.controller.test" ref="controller.test"/>
     <!-- 配置服务提供者协议、服务的监听端口 -->
     <dubbo:protocol id="dubbo" name="dubbo" port="20880"/>
 </beans>

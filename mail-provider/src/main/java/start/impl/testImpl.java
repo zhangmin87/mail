@@ -1,7 +1,7 @@
 package start.impl;
 
 import org.springframework.stereotype.Service;
-import start.service.test;
+import start.service.Test;
 
 /**
  * Created by zhangmin on 2017/9/25.
@@ -9,8 +9,9 @@ import start.service.test;
  */
 
 @Service("test")
-public class testImpl implements test {
-    public void show() {
-        System.out.println("stary hungry,stary folish");
+public class testImpl implements Test {
+    public String show() {
+       String a = "ni  you are  hello";
+       return a;
     }
 }

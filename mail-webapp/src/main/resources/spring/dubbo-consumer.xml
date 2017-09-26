@@ -4,16 +4,15 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-    <dubbo:application name="ceb-admin-webapp" />
+    <dubbo:application name="mail_dubbo_provider" />
 
     <!-- dubbo客户端统一配置 -->
     <dubbo:consumer timeout="60000" retries="0"/>
 
     <!-- 使用ZooKeeper广播注册中心 -->
-    <dubbo:registry protocol="zookeeper" address="${zk.address}" file="${user.home}/dubbo/cache/ceb-admin-webapp.cache"/>
-
-    <!-- 数据字典服务 -->
-    <dubbo:reference id="dictionaryClient" interface="com.ceair.ceb.basicdata.service.DictionaryService" validation="true" version="1.0.0"/>
+    <dubbo:registry protocol="zookeeper" address="${zk.address}" />
+    <!-- 测试服务-->
+    <dubbo:reference id="testClient" interface="start.service.Test" validation="true" version="1.0.0"/>
 
 
 </beans>
