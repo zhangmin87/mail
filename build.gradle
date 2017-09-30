@@ -5,13 +5,10 @@ buildscript {
 }
 
 
-group '15'
-version '1.0-SNAPSHOT'
-
 //添加java和maven 插件，可以使用两者的相关配置
 apply plugin: 'java'//添加java 组件
 apply plugin: 'war' //添加war 组件
-apply plugin: 'application'
+
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -47,6 +44,8 @@ tasks.withType(JavaCompile) {
 repositories {
     mavenCentral()
 }
+
+
 
 ext {
     frameworkExtVersion         = '2.0.0-SNAPSHOT'
@@ -127,33 +126,12 @@ dependencies {
     compile "org.springframework:spring-web:$springframeworkVersion"
 
     compile 'com.alibaba:druid:1.0.15'
-    compile 'org.aspectj:aspectjweaver:1.8.6'
-    compile 'mysql:mysql-connector-java:5.1.36'
-    compile 'junit:junit:4.12'
-//    compile 'org.springframework:spring-testController:4.0.5.RELEASE'
-    compile 'commons-dbcp:commons-dbcp:1.4'
-
-    // poi
-    compile "org.apache.poi:poi-ooxml:$poiVersion"
-    compile "org.apache.poi:poi-ooxml-schemas:$poiVersion"
 
 
-//    compile "jstl:jstl:$jstlVersion"
-    // jsontag
+    compile "jstl:jstl:$jstlVersion"
+
     compile "com.github.livesense:org.liveSense.scripting.jsp.taglib.jsonatg:1.0.5"
 
-    // Tiles
-    compile "org.apache.tiles:tiles-core:3.0.7"
-    compile "org.apache.tiles:tiles-api:3.0.7"
-    compile "org.apache.tiles:tiles-jsp:3.0.7"
-    compile "org.apache.tiles:tiles-servlet:3.0.7"
-    compile "org.apache.tiles:tiles-template:3.0.7"
-    compile "org.apache.tiles:tiles-request-servlet:1.0.6"
-    compile "org.apache.tiles:tiles-request-api:1.0.6"
-    compile "org.apache.tiles:tiles-request-jsp:1.0.6"
-    compile "org.apache.tiles:tiles-autotag-core-runtime:1.2"
-    compile "commons-digester:commons-digester:2.0"
-    compile "commons-beanutils:commons-beanutils:1.9.3"
     // Apache Commons
     compile "org.apache.commons:commons-lang3:$apacheLangVersion"
     compile "commons-net:commons-net:3.3"
@@ -163,59 +141,17 @@ dependencies {
     compile "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
     compile "com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion"
 
-//    // JSP & Servlet
+    // JSP & Servlet
     providedCompile "javax.servlet:servlet-api:$servletVersion"
     providedCompile "javax.servlet:jsp-api:$jspVersion"
-    // JPA & JSR303 Api & Hibernate Impl
-    compile "org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final"
-    compile "javax.validation:validation-api:$jsr303Version"
-    compile "org.hibernate:hibernate-validator:$hibernateValidatorVersion"
-    // Hibernate APIs
-    compile "org.hibernate:hibernate-core:$hibernateVersion"
-    compile "org.hibernate.common:hibernate-commons-annotations:5.0.1.Final"
-    // Mybatis & IBatis APIs
-    // Mybatis & IBatis APIs
-    compile "org.mybatis:mybatis:$mybatisVersion"
-    compile "org.mybatis:mybatis-spring:$mybatisSpringVersion"
-    // fileupload
-    compile "commons-fileupload:commons-fileupload:1.3.2"
-    compile "javax.jms:javax.jms-api:$jmsVersion"
-    compile "org.apache.activemq:activemq-pool:$activemqVersion"
-    compile "org.apache.activemq:activemq-client:$activemqVersion"
 
-
-//    // Dubbox
-    compile "com.alibaba:dubbo:2.5.3"
     compile "org.apache.zookeeper:zookeeper:$zookeeperVersion"
     compile "com.github.sgroschupf:zkclient:$zkclientVersion"
 
     // dangdang config-toolkit & apache curator
-//    compile "com.dangdang:config-common:3.0.0-RELEASE"
-//    compile "com.dangdang:config-toolkit:3.2.2-RELEASE"
-//    compile "org.apache.curator:curator-recipes:$curatorVersion"
-
+    compile "com.dangdang:config-common:3.0.0-RELEASE"
+    compile "com.dangdang:config-toolkit:3.2.2-RELEASE"
 }
-
-
-//configurations {
-//    compile { transitive = true }
-//    runtime { transitive = true }
-//}
-//
-//mainClassName = "com.alibaba.dubbo.container.Main"
-
-//加载本地
-/***
- *对本地jar 的依赖配置
- *如果不知道jar 包的远程仓库地址
- * 而项目中又要使用jar包，就需要进行本地设置
- * 例如：需要使用的jar包为siar.jar ，则需要在项目
- * 根目录下建目录：libs，并把sigar.jar 放到该目录中
- * 同时在
- */
-//dependencies {
-//    compile fileTree(dir:'lib',includes: ['*.jar'])
-//}
-
-
-
+dependencies {
+    compile fileTree(dir:'lib',includes: ['*.jar'])
+}
