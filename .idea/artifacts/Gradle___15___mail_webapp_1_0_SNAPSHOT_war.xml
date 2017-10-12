@@ -13,28 +13,20 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Gradle: com.alibaba:druid:1.0.15" />
+          <element id="archive" name="15-mail-api-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="mail-api_main" />
+            <element id="dir-copy" path="$PROJECT_DIR$/mail-api/build/resources/main" />
+          </element>
           <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.7.21" />
           <element id="library" level="project" name="Gradle: log4j:log4j:1.2.17" />
           <element id="library" level="project" name="Gradle: org.slf4j:slf4j-log4j12:1.7.21" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-aop:4.2.6.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-aspects:4.2.6.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-beans:4.2.6.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-context:4.2.6.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-context-support:4.2.6.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-core:4.2.6.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-expression:4.2.6.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-jdbc:4.2.6.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-jms:4.2.6.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-orm:4.2.6.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-oxm:4.2.6.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-tx:4.2.6.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-webmvc:4.2.6.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-web:4.2.6.RELEASE" />
           <element id="library" level="project" name="Gradle: mysql:mysql-connector-java:5.1.36" />
           <element id="library" level="project" name="Gradle: junit:junit:4.12" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-test:4.0.5.RELEASE" />
           <element id="library" level="project" name="Gradle: commons-dbcp:commons-dbcp:1.4" />
           <element id="library" level="project" name="Gradle: org.apache.poi:poi-ooxml:3.15" />
           <element id="library" level="project" name="Gradle: org.apache.poi:poi-ooxml-schemas:3.15" />
+          <element id="library" level="project" name="Gradle: jstl:jstl:1.2" />
           <element id="library" level="project" name="Gradle: com.github.livesense:org.liveSense.scripting.jsp.taglib.jsonatg:1.0.5" />
           <element id="library" level="project" name="Gradle: org.apache.tiles:tiles-core:3.0.7" />
           <element id="library" level="project" name="Gradle: org.apache.tiles:tiles-api:3.0.7" />
@@ -55,7 +47,6 @@
           <element id="library" level="project" name="Gradle: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final" />
           <element id="library" level="project" name="Gradle: javax.validation:validation-api:1.1.0.Final" />
           <element id="library" level="project" name="Gradle: org.hibernate:hibernate-validator:5.2.4.Final" />
-          <element id="library" level="project" name="Gradle: org.hibernate:hibernate-core:5.2.4.Final" />
           <element id="library" level="project" name="Gradle: org.hibernate.common:hibernate-commons-annotations:5.0.1.Final" />
           <element id="library" level="project" name="Gradle: org.mybatis:mybatis:3.3.0" />
           <element id="library" level="project" name="Gradle: org.mybatis:mybatis-spring:1.3.0" />
@@ -63,9 +54,11 @@
           <element id="library" level="project" name="Gradle: javax.jms:javax.jms-api:2.0.1" />
           <element id="library" level="project" name="Gradle: org.apache.activemq:activemq-pool:5.13.3" />
           <element id="library" level="project" name="Gradle: org.apache.activemq:activemq-client:5.13.3" />
-          <element id="library" level="project" name="Gradle: aopalliance:aopalliance:1.0" />
+          <element id="library" level="project" name="Gradle: org.apache.zookeeper:zookeeper:3.4.6" />
+          <element id="library" level="project" name="Gradle: com.github.sgroschupf:zkclient:0.1" />
+          <element id="library" level="project" name="Gradle: javax.el:javax.el-api:2.2.4" />
+          <element id="library" level="project" name="Gradle: org.glassfish.web:javax.el:2.2.4" />
           <element id="library" level="project" name="Gradle: commons-logging:commons-logging:1.2" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-messaging:4.2.6.RELEASE" />
           <element id="library" level="project" name="Gradle: org.hamcrest:hamcrest-core:1.3" />
           <element id="library" level="project" name="Gradle: commons-pool:commons-pool:1.5.4" />
           <element id="library" level="project" name="Gradle: org.apache.poi:poi:3.15" />
@@ -73,12 +66,7 @@
           <element id="library" level="project" name="Gradle: org.apache.xmlbeans:xmlbeans:2.6.0" />
           <element id="library" level="project" name="Gradle: commons-el:commons-el:1.0" />
           <element id="library" level="project" name="Gradle: org.slf4j:jcl-over-slf4j:1.7.6" />
-          <element id="library" level="project" name="Gradle: org.javassist:javassist:3.20.0-GA" />
-          <element id="library" level="project" name="Gradle: antlr:antlr:2.7.7" />
-          <element id="library" level="project" name="Gradle: org.apache.geronimo.specs:geronimo-jta_1.1_spec:1.1.1" />
-          <element id="library" level="project" name="Gradle: org.jboss:jandex:2.0.0.Final" />
-          <element id="library" level="project" name="Gradle: dom4j:dom4j:1.6.1" />
-          <element id="library" level="project" name="Gradle: javax.enterprise:cdi-api:1.1" />
+          <element id="library" level="project" name="Gradle: com.fasterxml:classmate:1.1.0" />
           <element id="library" level="project" name="Gradle: commons-io:commons-io:2.2" />
           <element id="library" level="project" name="Gradle: org.apache.activemq:activemq-jms-pool:5.13.3" />
           <element id="library" level="project" name="Gradle: org.apache.geronimo.specs:geronimo-jta_1.0.1B_spec:1.0.1" />
@@ -86,17 +74,32 @@
           <element id="library" level="project" name="Gradle: org.apache.geronimo.specs:geronimo-jms_1.1_spec:1.1.1" />
           <element id="library" level="project" name="Gradle: org.fusesource.hawtbuf:hawtbuf:1.11" />
           <element id="library" level="project" name="Gradle: org.apache.geronimo.specs:geronimo-j2ee-management_1.1_spec:1.0.1" />
+          <element id="library" level="project" name="Gradle: jline:jline:0.9.94" />
+          <element id="library" level="project" name="Gradle: io.netty:netty:3.7.0.Final" />
           <element id="library" level="project" name="Gradle: commons-codec:commons-codec:1.10" />
           <element id="library" level="project" name="Gradle: org.apache.commons:commons-collections4:4.1" />
           <element id="library" level="project" name="Gradle: stax:stax-api:1.0.1" />
-          <element id="library" level="project" name="Gradle: javax.el:el-api:2.2" />
-          <element id="library" level="project" name="Gradle: org.jboss.spec.javax.interceptor:jboss-interceptors-api_1.1_spec:1.0.0.Beta1" />
-          <element id="library" level="project" name="Gradle: javax.annotation:jsr250-api:1.0" />
-          <element id="library" level="project" name="Gradle: javax.inject:javax.inject:1" />
-          <element id="library" level="project" name="Gradle: org.aspectj:aspectjweaver:1.8.9" />
           <element id="library" level="project" name="Gradle: commons-collections:commons-collections:3.2.2" />
           <element id="library" level="project" name="Gradle: org.jboss.logging:jboss-logging:3.3.0.Final" />
-          <element id="library" level="project" name="Gradle: com.fasterxml:classmate:1.3.0" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.3.10.RELEASE/3a8c23246045e5e1dbd7d91354741b165e997a88/spring-aop-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aspects/4.3.10.RELEASE/5d5fea8e67c93910552741cb5b746625ad546bba/spring-aspects-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.3.10.RELEASE/9d89b786f755f9b1da344f10f6f045f927679a72/spring-beans-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.3.10.RELEASE/645ce6fdba38448d183a1374506fc24036009869/spring-context-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context-support/4.3.10.RELEASE/2c507b7441c428b4702c60be52c0d6446ae72673/spring-context-support-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.3.10.RELEASE/db1462df62dbedad7244da30ec471390660271c0/spring-core-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.3.10.RELEASE/4975ab542028945ab98fefba772472a40495d7ca/spring-expression-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/4.3.10.RELEASE/91e2f69e633f8eac5d5ef516595556ab7db87f3d/spring-jdbc-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jms/4.3.10.RELEASE/1c93f977f890aa9d4891e6828034f509c42f585b/spring-jms-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-orm/4.3.10.RELEASE/6450e007fdf2f9340f33b8d7bddb7f1f139b19d1/spring-orm-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-oxm/4.3.10.RELEASE/aaf944a8e302a93452adc3fb65b076623e1c7961/spring-oxm-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.3.10.RELEASE/569d30fd8d2050910e0271b838cf927ebb7efcdc/spring-tx-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.3.10.RELEASE/6809017a5a76bdaf1957f1cc0a892d448fc6f3df/spring-webmvc-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.10.RELEASE/6344501cb03cb4787c67cf3f820a471e07b9203b/spring-web-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.alibaba/dubbo/2.5.4/a10cd569bd5a3406540039b1b860faa09a13e2b4/dubbo-2.5.4.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-messaging/4.3.10.RELEASE/498a92969b2d57cc61fec8a35629a95db3ae030b/spring-messaging-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.javassist/javassist/3.20.0-GA/a9cbcdfb7e9f86fbc74d3afae65f2248bfbf82a0/javassist-3.20.0-GA.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jboss.netty/netty/3.2.5.Final/60f6ce4af55b0fcd54dd6522cbf588de0387e2f5/netty-3.2.5.Final.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.aspectj/aspectjweaver/1.8.10/e198c5fee28988c355f74e06461614eae36b2032/aspectjweaver-1.8.10.jar" />
         </element>
       </element>
       <element id="directory" name="META-INF">

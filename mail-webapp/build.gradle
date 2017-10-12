@@ -35,7 +35,9 @@ tasks.withType(JavaCompile) {
 repositories {
     mavenCentral()
 }
-
+repositories {
+    maven { url "http://dev.infoccsp.com/nexus/content/groups/public/"}
+}
 
 // 依赖的Lib
 dependencies {
@@ -46,8 +48,6 @@ dependencies {
 //    compile "javax.servlet:jsp-api:$jspVersion"
 
     compile project(':mail-api')
-    // Dubbox
-    compile 'com.alibaba:druid:1.0.15'
     // Log APIs (Slf4j & Log4j2 & commons-logging)
     compile "org.slf4j:slf4j-api:$slf4jVersion"
     compile "log4j:log4j:$log4jVersion"
@@ -122,15 +122,20 @@ dependencies {
     compile "javax.jms:javax.jms-api:$jmsVersion"
     compile "org.apache.activemq:activemq-pool:$activemqVersion"
     compile "org.apache.activemq:activemq-client:$activemqVersion"
+    //--------------------------------------------------------------------------------------------分割线
+    //dubbo   这里使用的是dubbo 2.5.4
 
-    compile "com.alibaba:dubbo:2.5.3"
+
+    compile "com.alibaba:dubbo:$dubboVersion"
     compile "org.apache.zookeeper:zookeeper:$zookeeperVersion"
     compile "com.github.sgroschupf:zkclient:$zkclientVersion"
-
-    //dangdang config-toolkit & apache curator
-    compile "com.dangdang:config-common:3.0.0-RELEASE"
-    compile "com.dangdang:config-toolkit:3.2.2-RELEASE"
-    compile "org.apache.curator:curator-recipes:$curatorVersion"
+    compile "javax.el:javax.el-api:2.2.4"
+    compile "org.glassfish.web:javax.el:2.2.4"
+//
+//    //dangdang config-toolkit & apache curator
+//    compile "com.dangdang:config-common:3.0.0-RELEASE"
+//    compile "com.dangdang:config-toolkit:3.2.2-RELEASE"
+//    compile "org.apache.curator:curator-recipes:$curatorVersion"
 }
 
 

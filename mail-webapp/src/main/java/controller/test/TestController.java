@@ -19,11 +19,11 @@ public class TestController {
 
 
     @Autowired
-    private Test test;
+    private Test testClient;
 
     @RequestMapping(method = {RequestMethod.GET,RequestMethod.POST})
     private ModelAndView login(){
-        String  a = test.show();
+        String  a = testClient.show();
         ModelAndView modelAndView = new ModelAndView("jsp/first");
         modelAndView.addObject("demo",a);
         return modelAndView;

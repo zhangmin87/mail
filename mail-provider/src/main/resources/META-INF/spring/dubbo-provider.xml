@@ -8,9 +8,10 @@
     <dubbo:application name="mail_dubbo_provider"/>
     <!-- 使用zookeeper注册中心暴露服务地址 -->
     <dubbo:registry protocol="zookeeper" address="${zk.address}" check="false"  register="" file="${user.home}/dubbo/cache/ceb-dubbo-provider.cache"/>
-    <!-- 要暴露的服务接口 -->
-    <dubbo:service interface="start.service.Test" ref="test"  validation="true" version="1.0.0"/>
     <!-- 配置服务提供者协议、服务的监听端口 -->
     <dubbo:protocol id="dubbo" name="dubbo" port="20880"/>
     <dubbo:provider threads="200" timeout="15000" retries="0"/>
+    <!-- 要暴露的服务接口 -->
+    <dubbo:service interface="start.service.Test" ref="test"  validation="true" version="1.0.0"/>
+
 </beans>

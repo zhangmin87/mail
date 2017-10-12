@@ -1,0 +1,63 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Gradle : mail.war">
+    <output-path>$PROJECT_DIR$/out/artifacts/mail</output-path>
+    <properties id="gradle-properties">
+      <options external-project-path="$PROJECT_DIR$" />
+    </properties>
+    <root id="archive" name="mail.war">
+      <element id="javaee-facet-resources" facet="mail_main/web/Web Gradle : mail.war" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="mail_main" />
+          <element id="dir-copy" path="$PROJECT_DIR$/build/resources/main" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Gradle: com.alibaba:druid:1.0.15" />
+          <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.7.21" />
+          <element id="library" level="project" name="Gradle: log4j:log4j:1.2.17" />
+          <element id="library" level="project" name="Gradle: org.slf4j:slf4j-log4j12:1.7.21" />
+          <element id="library" level="project" name="Gradle: jstl:jstl:1.2" />
+          <element id="library" level="project" name="Gradle: com.github.livesense:org.liveSense.scripting.jsp.taglib.jsonatg:1.0.5" />
+          <element id="library" level="project" name="Gradle: org.apache.commons:commons-lang3:3.5" />
+          <element id="library" level="project" name="Gradle: commons-net:commons-net:3.3" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.8.0.rc1" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.8.0.rc1" />
+          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.8.0.rc1" />
+          <element id="library" level="project" name="Gradle: javax.validation:validation-api:1.1.0.Final" />
+          <element id="library" level="project" name="Gradle: com.dangdang:config-common:3.0.0-RELEASE" />
+          <element id="library" level="project" name="Gradle: com.dangdang:config-toolkit:3.2.2-RELEASE" />
+          <element id="library" level="project" name="Gradle: javax.el:javax.el-api:2.2.4" />
+          <element id="library" level="project" name="Gradle: org.glassfish.web:javax.el:2.2.4" />
+          <element id="library" level="project" name="Gradle: commons-logging:commons-logging:1.2" />
+          <element id="library" level="project" name="Gradle: commons-el:commons-el:1.0" />
+          <element id="library" level="project" name="Gradle: org.apache.curator:curator-framework:2.6.0" />
+          <element id="library" level="project" name="Gradle: com.google.guava:guava:17.0" />
+          <element id="library" level="project" name="Gradle: commons-io:commons-io:2.4" />
+          <element id="library" level="project" name="Gradle: org.apache.curator:curator-client:2.6.0" />
+          <element id="library" level="project" name="Gradle: org.apache.zookeeper:zookeeper:3.4.6" />
+          <element id="library" level="project" name="Gradle: jline:jline:0.9.94" />
+          <element id="library" level="project" name="Gradle: io.netty:netty:3.7.0.Final" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.3.10.RELEASE/3a8c23246045e5e1dbd7d91354741b165e997a88/spring-aop-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aspects/4.3.10.RELEASE/5d5fea8e67c93910552741cb5b746625ad546bba/spring-aspects-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.3.10.RELEASE/9d89b786f755f9b1da344f10f6f045f927679a72/spring-beans-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.3.10.RELEASE/645ce6fdba38448d183a1374506fc24036009869/spring-context-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context-support/4.3.10.RELEASE/2c507b7441c428b4702c60be52c0d6446ae72673/spring-context-support-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.3.10.RELEASE/db1462df62dbedad7244da30ec471390660271c0/spring-core-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.3.10.RELEASE/4975ab542028945ab98fefba772472a40495d7ca/spring-expression-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/4.3.10.RELEASE/91e2f69e633f8eac5d5ef516595556ab7db87f3d/spring-jdbc-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jms/4.3.10.RELEASE/1c93f977f890aa9d4891e6828034f509c42f585b/spring-jms-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-orm/4.3.10.RELEASE/6450e007fdf2f9340f33b8d7bddb7f1f139b19d1/spring-orm-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-oxm/4.3.10.RELEASE/aaf944a8e302a93452adc3fb65b076623e1c7961/spring-oxm-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.3.10.RELEASE/569d30fd8d2050910e0271b838cf927ebb7efcdc/spring-tx-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.3.10.RELEASE/6809017a5a76bdaf1957f1cc0a892d448fc6f3df/spring-webmvc-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.10.RELEASE/6344501cb03cb4787c67cf3f820a471e07b9203b/spring-web-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.aspectj/aspectjweaver/1.8.10/e198c5fee28988c355f74e06461614eae36b2032/aspectjweaver-1.8.10.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-messaging/4.3.10.RELEASE/498a92969b2d57cc61fec8a35629a95db3ae030b/spring-messaging-4.3.10.RELEASE.jar" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/mail/exploded/mail.war/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

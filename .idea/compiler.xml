@@ -21,8 +21,8 @@
     <bytecodeTargetLevel>
       <module name="mail-api_main" target="1.8" />
       <module name="mail-api_test" target="1.8" />
-      <module name="mail-provider_main" target="1.5" />
-      <module name="mail-provider_test" target="1.5" />
+      <module name="mail-provider_main" target="1.8" />
+      <module name="mail-provider_test" target="1.8" />
       <module name="mail-webapp_main" target="1.8" />
       <module name="mail-webapp_test" target="1.8" />
       <module name="mail_main" target="1.8" />

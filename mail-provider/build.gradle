@@ -1,6 +1,7 @@
 
 apply plugin: 'application'
-sourceCompatibility = 1.5
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 configurations {
     compile { transitive = true }
@@ -9,17 +10,30 @@ configurations {
 repositories {
     mavenCentral()
 }
-
+repositories {
+    maven { url "http://dev.infoccsp.com/nexus/content/groups/public/"}
+}
 dependencies {
     compile project(':mail-api')
+
+    // sso-client
+    compile "com.infoccsp:sso-client:$ssoclientVersion"
+    compile "com.sun.mail:javax.mail:$javamailVersion"
     mainClassName = "com.alibaba.dubbo.container.Main"
     compile "org.apache.zookeeper:zookeeper:$zookeeperVersion"
     compile "com.github.sgroschupf:zkclient:$zkclientVersion"
-    compile 'com.alibaba:druid:1.0.15'
+    // druid
+    compile "com.alibaba:druid:1.1.2"
     // Log APIs (Slf4j & Log4j2 & commons-logging)
     compile "org.slf4j:slf4j-api:$slf4jVersion"
     compile "log4j:log4j:$log4jVersion"
     compile "org.slf4j:slf4j-log4j12:$slf4jVersion"
+    // JSP & Servlet
+    compile "javax.servlet:servlet-api:$servletVersion"
+    compile "javax.servlet:jsp-api:$jspVersion"
+    // jstl
+    compile "jstl:jstl:$jstlVersion"
+
     // springframework
     compile "org.springframework:spring-aop:$springframeworkVersion"
     compile "org.springframework:spring-aspects:$springframeworkVersion"
@@ -35,15 +49,30 @@ dependencies {
     compile "org.springframework:spring-tx:$springframeworkVersion"
     compile "org.springframework:spring-webmvc:$springframeworkVersion"
     compile "org.springframework:spring-web:$springframeworkVersion"
-    compile fileTree(dir:'lib',includes: ['*.jar'])
+    //--------------------------------------------------------------------------
+    compile "com.alibaba:dubbo:$dubboVersion"
+    // JPA & JSR303 Api & Hibernate Impl
+    compile "org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final"
+    compile "javax.validation:validation-api:$jsr303Version"
+    compile "org.hibernate:hibernate-validator:$hibernateValidatorVersion"
+    compile "javax.el:javax.el-api:2.2.4"
+
+    compile "org.glassfish.web:javax.el:2.2.4"
+
+//    compile fileTree(dir:'lib',includes: ['*.jar'])
+    // dangdang config-toolkit & apache curator
+//    compile "com.dangdang:config-common:3.0.0-RELEASE"
+//    compile "com.dangdang:config-toolkit:3.2.2-RELEASE"
+    //
+
 }
-applicationDefaultJvmArgs = [
-        "-DDEPLOY_ENV=local",
-//        "-Djava.net.preferIPv4Stack=true",
-//        "-Dcom.sun.management.jmxremote",
-        "-Djava.rmi.server.hostname=127.0.0.1",
-        "-Dcom.sun.management.jmxremote.port=9876",
-        "-Dcom.sun.management.jmxremote.authenticate=false",
-        "-Dcom.sun.management.jmxremote.ssl=false"
-]
+//applicationDefaultJvmArgs = [
+//        "-DDEPLOY_ENV=local",
+////        "-Djava.net.preferIPv4Stack=true",
+////        "-Dcom.sun.management.jmxremote",
+//        "-Djava.rmi.server.hostname=127.0.0.1",
+//        "-Dcom.sun.management.jmxremote.port=9876",
+//        "-Dcom.sun.management.jmxremote.authenticate=false",
+//        "-Dcom.sun.management.jmxremote.ssl=false"
+//]
 
