@@ -15,4 +15,6 @@
 <dubbo:registry protocol="zookeeper" address="zookeeper://localhost:2181" />
 <!-- 测试服务-->
 <dubbo:reference id="testClient" interface="start.service.Test" validation="true" version="1.0.0"/>
+    <!-- dubbo 测试服务 -->
+<dubbo:reference id="dubbbClient" interface="test.service.DubboDemo" validation="true" version="1.0.0"/>
 </beans>

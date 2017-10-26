@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import start.service.Test;
+import test.service.DubboDemo;
 
 
 /**
@@ -17,15 +18,18 @@ import start.service.Test;
 @RequestMapping("/login")
 public class TestController {
 
-
     @Autowired
     private Test testClient;
+
+    @Autowired
+    private DubboDemo dubboDemo;
 
     @RequestMapping(method = {RequestMethod.GET,RequestMethod.POST})
     private ModelAndView login(){
         String  a = testClient.show();
+        String  b = dubboDemo.doSave();
         ModelAndView modelAndView = new ModelAndView("jsp/first");
-        modelAndView.addObject("demo",a);
+        modelAndView.addObject("demo",b);
         return modelAndView;
     }
 }
