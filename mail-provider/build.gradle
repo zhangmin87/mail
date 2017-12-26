@@ -56,8 +56,11 @@ dependencies {
     compile "javax.validation:validation-api:$jsr303Version"
     compile "org.hibernate:hibernate-validator:$hibernateValidatorVersion"
     compile "javax.el:javax.el-api:2.2.4"
-
     compile "org.glassfish.web:javax.el:2.2.4"
+    //active  mq
+    compile "javax.jms:javax.jms-api:$jmsVersion"
+    compile "org.apache.activemq:activemq-pool:$activemqVersion"
+    compile "org.apache.activemq:activemq-client:$activemqVersion"
 
 //    compile fileTree(dir:'lib',includes: ['*.jar'])
     // dangdang config-toolkit & apache curator
