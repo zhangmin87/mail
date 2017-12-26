@@ -13,7 +13,7 @@
 
     <dubbo:provider threads="200" timeout="15000" retries="0"/>
     <!-- 要暴露的服务接口 -->
-    <dubbo:service interface="start.service.Test" ref="test"  validation="true" version="1.0.0"/>
+    <dubbo:service interface="test.service.Test" ref="test"  validation="true" version="1.0.0"/>
     <!-- dubbo 测试服务 -->
     <dubbo:service interface="test.service.DubboDemo" ref="dubboDemo"  validation="true" version="1.0.0"/>
     <!-- dubbo 测试 -->
