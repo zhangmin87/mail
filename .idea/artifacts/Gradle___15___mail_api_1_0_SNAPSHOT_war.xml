@@ -11,6 +11,18 @@
           <element id="module-output" name="mail-api_main" />
           <element id="dir-copy" path="$PROJECT_DIR$/mail-api/build/resources/main" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.7.13" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/javax.jms/javax.jms-api/2.0.1/5faaa3864ff6025ce69809b60d65bda3e358610c/javax.jms-api-2.0.1.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.apache.activemq/activemq-pool/5.13.3/7090a8817ee25c3628bc3e883852992d55bf6f9/activemq-pool-5.13.3.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.apache.activemq/activemq-client/5.13.3/deaafde093d424fddf681e4337c6397a54d7ae30/activemq-client-5.13.3.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.apache.activemq/activemq-jms-pool/5.13.3/d3bd52d43848d9c01e78a6932fe8b4eaaf9b118c/activemq-jms-pool-5.13.3.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.apache.geronimo.specs/geronimo-jta_1.0.1B_spec/1.0.1/c9e67d21082a497f20e4ce87be1379faceb9c087/geronimo-jta_1.0.1B_spec-1.0.1.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.apache.commons/commons-pool2/2.4.2/e5f4f28f19d57716fbc3989d7a357ebf1e454fea/commons-pool2-2.4.2.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.apache.geronimo.specs/geronimo-jms_1.1_spec/1.1.1/c872b46c601d8dc03633288b81269f9e42762cea/geronimo-jms_1.1_spec-1.1.1.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.fusesource.hawtbuf/hawtbuf/1.11/8f0e50ad8bea37b84b698ec40cce09e47714a63e/hawtbuf-1.11.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.apache.geronimo.specs/geronimo-j2ee-management_1.1_spec/1.0.1/5372615b0c04c1913c95c34a0414cef720ca2855/geronimo-j2ee-management_1.1_spec-1.0.1.jar" />
+        </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/mail-api/exploded/mail-api-1.0-SNAPSHOT.war/META-INF/MANIFEST.MF" />

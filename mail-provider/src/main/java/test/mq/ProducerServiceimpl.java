@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
+import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.Session;
-import javax.print.attribute.standard.Destination;
 
 /**
  * Created by Administrator on 2017/12/25.
@@ -30,10 +30,10 @@ public class ProducerServiceimpl implements ProducerService{
     public void sendMessage(Destination receivedestination, final String message) {
 
         logger.info("生产者产生了第一条消息");
-        jmsTemplate.send(String.valueOf(receivedestination), new MessageCreator() {
+        jmsTemplate.send(receivedestination, new MessageCreator() {
             @Override
             public Message createMessage(Session session) throws JMSException {
-                return session.createTextMessage("hello activeMQ:" + message);
+                return session.createTextMessage("I love  you:" + message);
             }
     });
 

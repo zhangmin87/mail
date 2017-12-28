@@ -1,15 +1,15 @@
 package test.mq;
 
+
+
 import org.springframework.jms.core.JmsTemplate;
+
 import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.Session;
-import javax.jms.TextMessage;
-import javax.print.attribute.standard.Destination;
+
+import javax.jms.*;
 
 /**
  * Created by Administrator on 2017/12/26.
@@ -28,7 +28,7 @@ public class ConsumerServiceimpl implements ConsumerService{
         /**
          * 接收消息队列中的消息
          */
-        Message message = jTemplate.receive(String.valueOf(destination));
+        Message message = jTemplate.receive(destination);
         try {
             /**
              * 此处为了更好的容错性，可以使用instanceof来判断下消息类型
@@ -39,10 +39,11 @@ public class ConsumerServiceimpl implements ConsumerService{
                 /**
                  * 收到消息之后，将回复报文放到回复队列里面去
                  */
-                jTemplate.send(String.valueOf(replyDestination), new MessageCreator() {
+                jTemplate.send(replyDestination, new MessageCreator() {
 
                     @Override
                     public Message createMessage(Session session) throws JMSException {
+
                         return session.createTextMessage("消费者已经收到生产者的消息了，这是一条确认报文!");
                     }
                 });
@@ -54,4 +55,4 @@ public class ConsumerServiceimpl implements ConsumerService{
         return "";
     }
 }
-}
+

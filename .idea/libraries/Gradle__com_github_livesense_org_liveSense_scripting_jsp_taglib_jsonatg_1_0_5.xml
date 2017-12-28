@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.livesense:org.liveSense.scripting.jsp.taglib.jsonatg:1.0.5">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.livesense/org.liveSense.scripting.jsp.taglib.jsonatg/1.0.5/db8ac5df3788400eb51eeb0df0f6e218f223b1e2/org.liveSense.scripting.jsp.taglib.jsonatg-1.0.5.jar!/" />
+      <root url="jar://C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/com.github.livesense/org.liveSense.scripting.jsp.taglib.jsonatg/1.0.5/db8ac5df3788400eb51eeb0df0f6e218f223b1e2/org.liveSense.scripting.jsp.taglib.jsonatg-1.0.5.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.livesense/org.liveSense.scripting.jsp.taglib.jsonatg/1.0.5/f07e287deb5349675c33f090ceb92229ee278671/org.liveSense.scripting.jsp.taglib.jsonatg-1.0.5-sources.jar!/" />
+      <root url="jar://C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/com.github.livesense/org.liveSense.scripting.jsp.taglib.jsonatg/1.0.5/f07e287deb5349675c33f090ceb92229ee278671/org.liveSense.scripting.jsp.taglib.jsonatg-1.0.5-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

@@ -12,47 +12,47 @@
           <element id="dir-copy" path="$PROJECT_DIR$/build/resources/main" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="Gradle: com.alibaba:druid:1.0.15" />
-          <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.7.21" />
-          <element id="library" level="project" name="Gradle: log4j:log4j:1.2.17" />
-          <element id="library" level="project" name="Gradle: org.slf4j:slf4j-log4j12:1.7.21" />
-          <element id="library" level="project" name="Gradle: jstl:jstl:1.2" />
-          <element id="library" level="project" name="Gradle: com.github.livesense:org.liveSense.scripting.jsp.taglib.jsonatg:1.0.5" />
-          <element id="library" level="project" name="Gradle: org.apache.commons:commons-lang3:3.5" />
-          <element id="library" level="project" name="Gradle: commons-net:commons-net:3.3" />
-          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.8.0.rc1" />
-          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.8.0.rc1" />
-          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.8.0.rc1" />
-          <element id="library" level="project" name="Gradle: javax.validation:validation-api:1.1.0.Final" />
-          <element id="library" level="project" name="Gradle: com.dangdang:config-common:3.0.0-RELEASE" />
-          <element id="library" level="project" name="Gradle: com.dangdang:config-toolkit:3.2.2-RELEASE" />
-          <element id="library" level="project" name="Gradle: javax.el:javax.el-api:2.2.4" />
-          <element id="library" level="project" name="Gradle: org.glassfish.web:javax.el:2.2.4" />
-          <element id="library" level="project" name="Gradle: commons-logging:commons-logging:1.2" />
-          <element id="library" level="project" name="Gradle: commons-el:commons-el:1.0" />
-          <element id="library" level="project" name="Gradle: org.apache.curator:curator-framework:2.6.0" />
           <element id="library" level="project" name="Gradle: com.google.guava:guava:17.0" />
           <element id="library" level="project" name="Gradle: commons-io:commons-io:2.4" />
-          <element id="library" level="project" name="Gradle: org.apache.curator:curator-client:2.6.0" />
-          <element id="library" level="project" name="Gradle: org.apache.zookeeper:zookeeper:3.4.6" />
-          <element id="library" level="project" name="Gradle: jline:jline:0.9.94" />
-          <element id="library" level="project" name="Gradle: io.netty:netty:3.7.0.Final" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.3.10.RELEASE/3a8c23246045e5e1dbd7d91354741b165e997a88/spring-aop-4.3.10.RELEASE.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aspects/4.3.10.RELEASE/5d5fea8e67c93910552741cb5b746625ad546bba/spring-aspects-4.3.10.RELEASE.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.3.10.RELEASE/9d89b786f755f9b1da344f10f6f045f927679a72/spring-beans-4.3.10.RELEASE.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.3.10.RELEASE/645ce6fdba38448d183a1374506fc24036009869/spring-context-4.3.10.RELEASE.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context-support/4.3.10.RELEASE/2c507b7441c428b4702c60be52c0d6446ae72673/spring-context-support-4.3.10.RELEASE.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.3.10.RELEASE/db1462df62dbedad7244da30ec471390660271c0/spring-core-4.3.10.RELEASE.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.3.10.RELEASE/4975ab542028945ab98fefba772472a40495d7ca/spring-expression-4.3.10.RELEASE.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/4.3.10.RELEASE/91e2f69e633f8eac5d5ef516595556ab7db87f3d/spring-jdbc-4.3.10.RELEASE.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jms/4.3.10.RELEASE/1c93f977f890aa9d4891e6828034f509c42f585b/spring-jms-4.3.10.RELEASE.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-orm/4.3.10.RELEASE/6450e007fdf2f9340f33b8d7bddb7f1f139b19d1/spring-orm-4.3.10.RELEASE.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-oxm/4.3.10.RELEASE/aaf944a8e302a93452adc3fb65b076623e1c7961/spring-oxm-4.3.10.RELEASE.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.3.10.RELEASE/569d30fd8d2050910e0271b838cf927ebb7efcdc/spring-tx-4.3.10.RELEASE.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.3.10.RELEASE/6809017a5a76bdaf1957f1cc0a892d448fc6f3df/spring-webmvc-4.3.10.RELEASE.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.10.RELEASE/6344501cb03cb4787c67cf3f820a471e07b9203b/spring-web-4.3.10.RELEASE.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.aspectj/aspectjweaver/1.8.10/e198c5fee28988c355f74e06461614eae36b2032/aspectjweaver-1.8.10.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-messaging/4.3.10.RELEASE/498a92969b2d57cc61fec8a35629a95db3ae030b/spring-messaging-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/com.alibaba/druid/1.0.15/6a84f94a0dafe1f7912e90961de029d9bb3c7807/druid-1.0.15.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.21/139535a69a4239db087de9bab0bee568bf8e0b70/slf4j-api-1.7.21.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/log4j/log4j/1.2.17/5af35056b4d257e4b64b9e8069c0746e8b08629f/log4j-1.2.17.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.slf4j/slf4j-log4j12/1.7.21/7238b064d1aba20da2ac03217d700d91e02460fa/slf4j-log4j12-1.7.21.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.springframework/spring-aop/4.3.10.RELEASE/3a8c23246045e5e1dbd7d91354741b165e997a88/spring-aop-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.springframework/spring-aspects/4.3.10.RELEASE/5d5fea8e67c93910552741cb5b746625ad546bba/spring-aspects-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.springframework/spring-beans/4.3.10.RELEASE/9d89b786f755f9b1da344f10f6f045f927679a72/spring-beans-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.springframework/spring-context/4.3.10.RELEASE/645ce6fdba38448d183a1374506fc24036009869/spring-context-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.springframework/spring-context-support/4.3.10.RELEASE/2c507b7441c428b4702c60be52c0d6446ae72673/spring-context-support-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.springframework/spring-core/4.3.10.RELEASE/db1462df62dbedad7244da30ec471390660271c0/spring-core-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.springframework/spring-expression/4.3.10.RELEASE/4975ab542028945ab98fefba772472a40495d7ca/spring-expression-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.springframework/spring-jdbc/4.3.10.RELEASE/91e2f69e633f8eac5d5ef516595556ab7db87f3d/spring-jdbc-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.springframework/spring-jms/4.3.10.RELEASE/1c93f977f890aa9d4891e6828034f509c42f585b/spring-jms-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.springframework/spring-orm/4.3.10.RELEASE/6450e007fdf2f9340f33b8d7bddb7f1f139b19d1/spring-orm-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.springframework/spring-oxm/4.3.10.RELEASE/aaf944a8e302a93452adc3fb65b076623e1c7961/spring-oxm-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.springframework/spring-tx/4.3.10.RELEASE/569d30fd8d2050910e0271b838cf927ebb7efcdc/spring-tx-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.3.10.RELEASE/6809017a5a76bdaf1957f1cc0a892d448fc6f3df/spring-webmvc-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.10.RELEASE/6344501cb03cb4787c67cf3f820a471e07b9203b/spring-web-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/jstl/jstl/1.2/74aca283cd4f4b4f3e425f5820cda58f44409547/jstl-1.2.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/com.github.livesense/org.liveSense.scripting.jsp.taglib.jsonatg/1.0.5/db8ac5df3788400eb51eeb0df0f6e218f223b1e2/org.liveSense.scripting.jsp.taglib.jsonatg-1.0.5.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.5/6c6c702c89bfff3cd9e80b04d668c5e190d588c6/commons-lang3-3.5.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/commons-net/commons-net/3.3/cd0d5510908225f76c5fe5a3f1df4fa44866f81e/commons-net-3.3.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.8.0.rc1/166370145f117d822654cc545e8e8b2ea1436b35/jackson-core-2.8.0.rc1.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.8.0.rc1/f3ac3b31cb804acb98ace2545ee58aba00e6397/jackson-databind-2.8.0.rc1.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.8.0.rc1/9368dc338315ea167dfec42e08665f9e115bef74/jackson-annotations-2.8.0.rc1.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/javax.validation/validation-api/1.1.0.Final/8613ae82954779d518631e05daa73a6a954817d5/validation-api-1.1.0.Final.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/com.dangdang/config-common/3.0.0-RELEASE/f1be0e543ed17eafcfddee262eaeccbdffccfcbd/config-common-3.0.0-RELEASE.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/com.dangdang/config-toolkit/3.2.2-RELEASE/40e5ef1c8f83c1cff5e27e3c58df3659dd883945/config-toolkit-3.2.2-RELEASE.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/javax.el/javax.el-api/2.2.4/1287562cc3f0ff5439ded6f2949e73ce1c0edaab/javax.el-api-2.2.4.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.glassfish.web/javax.el/2.2.4/a50914ff519682e185bca4385b4313b8c8a81775/javax.el-2.2.4.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.aspectj/aspectjweaver/1.8.10/e198c5fee28988c355f74e06461614eae36b2032/aspectjweaver-1.8.10.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/4bfc12adfe4842bf07b657f0369c4cb522955686/commons-logging-1.2.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.springframework/spring-messaging/4.3.10.RELEASE/498a92969b2d57cc61fec8a35629a95db3ae030b/spring-messaging-4.3.10.RELEASE.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/commons-el/commons-el/1.0/1df2c042b3f2de0124750241ac6c886dbfa2cc2c/commons-el-1.0.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.apache.curator/curator-framework/2.6.0/81a699c39d127b5b4ff97cc77da7650b53e5b5ed/curator-framework-2.6.0.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.apache.curator/curator-client/2.6.0/b9007c357ad1a78066fc6004e8b1feaa2318f6f3/curator-client-2.6.0.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/org.apache.zookeeper/zookeeper/3.4.6/1b2502e29da1ebaade2357cd1de35a855fa3755/zookeeper-3.4.6.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/jline/jline/0.9.94/99a18e9a44834afdebc467294e1138364c207402/jline-0.9.94.jar" />
+          <element id="file-copy" path="C:/gradle/gradle-2.10/bin/caches/modules-2/files-2.1/io.netty/netty/3.7.0.Final/7a8c35599c68c0bf383df74469aa3e03d9aca87/netty-3.7.0.Final.jar" />
         </element>
       </element>
       <element id="directory" name="META-INF">
