@@ -24,6 +24,6 @@ public class SynProducerActiveMQTest {
 
     @Test
     public void producerTest() {
-        producerService.sendMessage(receiveQueue,"my name  is zhangmin");
+        producerService.sendMessage(receiveQueue,"my name   is zhangmin");
     }
 }
