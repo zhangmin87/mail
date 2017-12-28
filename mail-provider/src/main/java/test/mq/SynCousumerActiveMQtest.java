@@ -32,6 +32,7 @@ public class SynCousumerActiveMQtest {
 
     @Test
     public void producerTest() {
+
         String result = consumerService.receiveMessage(receiveQueue,replyQueue);
         ;logger.info("result");
     }

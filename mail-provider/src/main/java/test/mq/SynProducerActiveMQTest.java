@@ -22,6 +22,7 @@ public class SynProducerActiveMQTest {
     @Resource(name="queueDestination")
     private Destination receiveQueue;
 
+
     @Test
     public void producerTest() {
         producerService.sendMessage(receiveQueue,"my name   is zhangmin");
