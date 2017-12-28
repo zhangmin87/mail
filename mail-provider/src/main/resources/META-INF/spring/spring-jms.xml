@@ -43,9 +43,9 @@
             <value>NIK_MOCK_OUTPUT</value>
         </constructor-arg>
     </bean>
-    <bean id="consumer">
 
-    </bean>
+
+    <bean id ="ConsumerMessageListener" class="test.Listener.ConsumerMessageListener"/>
 
 
     <!-- 消息监听处理类 -->
@@ -55,7 +55,7 @@
         <property name="messageListener" ref="ConsumerMessageListener"/>
     </bean>
 
-
+    <context:property-placeholder location="classpath:env/local/*.properties"/>
     <!-- 扫描service -->
     <context:component-scan base-package="test.mq"/>
 </beans>
