@@ -28,8 +28,6 @@ public class ConsumerMessageListener implements MessageListener{
                 logger.error("消息生产者接受消息时候发生异常",e);
             }
         }
-
     }
-
 
 }
