@@ -23,9 +23,9 @@ public class ConsumerMessageListener implements MessageListener{
         if (message instanceof TextMessage ) {
             try{
                 String  text = ((TextMessage) message).getText();
-                logger.info("消息生产者接到消息响应"+text);
+                logger.info("消费者接到消息响应"+text);
             }catch (JMSException e) {
-                logger.error("消息生产者接受消息时候发生异常",e);
+                logger.error("消息者接受消息时候发生异常",e);
             }
         }
     }

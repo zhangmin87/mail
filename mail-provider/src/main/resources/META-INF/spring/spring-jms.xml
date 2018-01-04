@@ -52,8 +52,14 @@
     <bean id="jmsContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
         <property name="connectionFactory" ref="connectionFactory"/>
         <property name="destination" ref="queueDestination"/>
-        <property name="messageListener" ref="ConsumerMessageListener"/>
+        <property name="messageListener">
+            <bean class="jms.SimpleMessageListener">
+                <property name="registry" ref="mapMessageHandlerRegistry"/>
+            </bean>
+        </property>
     </bean>
+    <!--简易的注册中心 -->
+    <bean id="mapMessageHandlerRegistry" class="handler.MapMessageHandlerRegistry"/>
 
     <context:property-placeholder location="classpath:env/local/*.properties"/>
     <!-- 扫描service -->
