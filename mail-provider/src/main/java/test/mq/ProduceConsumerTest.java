@@ -23,14 +23,10 @@ public class ProduceConsumerTest {
     @Autowired
     private ProducerService producerService;
 
-    @Resource(name = "queueDestination")
-    private Destination destination;
-
     @Test
     public void testSend() {
         for (int i=0;i<3;i++) {
-            producerService.sendMessage(destination,"hello world"+(i+1));
+            producerService.sendMessage("mail.mqs","hello world"+(i+1));
         }
     }
-
 }

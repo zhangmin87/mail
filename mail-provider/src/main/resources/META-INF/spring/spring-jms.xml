@@ -4,7 +4,8 @@
        xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <!-- 真正可以产生Connection的ConnectionFactory，由对应的 JMS服务厂商提供 -->
+
+<!-- 真正可以产生Connection的ConnectionFactory，由对应的 JMS服务厂商提供 -->
     <bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
         <property name="brokerURL" value="tcp://localhost:61616" />
     </bean>
@@ -24,34 +25,35 @@
     <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
         <!-- 这个connectionFactory对应的是我们定义的Spring提供的那个ConnectionFactory对象 -->
         <property name="connectionFactory" ref="connectionFactory" />
-        <!-- 区别它采用的模式 -->
+        <!-- 默认队列 -->
+            <property name="defaultDestinationName" value="${queue.sender.mail.cargo.name}"/>
         <!-- 区别它采用的模式伟false是p2p -->
         <property name="pubSubDomain" value="false"/>
 </bean>
     <!-- 在真正的jmsTemplate 进行消息发送的时候，我们需要知道消息发送的目的地，即destination,在jms中有一个用来表示目的地
     的Destination 接口，它里面没有任何方法定义，只是用来做一个标识而已，当我们在使用jmstemplate beand 对象时通过属性defaultDesination
      -->
-    <bean id="queueDestination" class="org.apache.activemq.command.ActiveMQQueue">
-        <constructor-arg>
-            <value>NIF_MOCK_INPUT</value>
-        </constructor-arg>
-    </bean>
+    <!--<bean id="queueDestination" class="org.apache.activemq.command.ActiveMQQueue">-->
+        <!--<constructor-arg>-->
+            <!--<value>NIF_MOCK_INPUT</value>-->
+        <!--</constructor-arg>-->
+    <!--</bean>-->
 
-    <!--这个是回复队列，点对点的 -->
-    <bean id="responseQueue" class="org.apache.activemq.command.ActiveMQQueue">
-        <constructor-arg>
-            <value>NIK_MOCK_OUTPUT</value>
-        </constructor-arg>
-    </bean>
+    <!--&lt;!&ndash;这个是回复队列，点对点的 &ndash;&gt;-->
+    <!--<bean id="responseQueue" class="org.apache.activemq.command.ActiveMQQueue">-->
+        <!--<constructor-arg>-->
+            <!--<value>NIK_MOCK_OUTPUT</value>-->
+        <!--</constructor-arg>-->
+    <!--</bean>-->
 
 
-    <bean id ="ConsumerMessageListener" class="test.Listener.ConsumerMessageListener"/>
+
 
 
     <!-- 消息监听处理类 -->
     <bean id="jmsContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
         <property name="connectionFactory" ref="connectionFactory"/>
-        <property name="destination" ref="queueDestination"/>
+        <property name="destinationName" value="${queue.sender.mail.cargo.name}"/>
         <property name="messageListener">
             <bean class="jms.SimpleMessageListener">
                 <property name="registry" ref="mapMessageHandlerRegistry"/>
