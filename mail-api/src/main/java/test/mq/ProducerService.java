@@ -12,5 +12,5 @@ import javax.jms.Destination;
 public interface ProducerService {
     void sendMessage(Destination destination, final String message);
     //// FIXME: 2018/1/4 参考ceb 项目看看怎么开发的
-    void send(JmsTemplate jmsTemplate,String destionName,String messageType,String messageText);
+//    void send(JmsTemplate jmsTemplate,String destionName,String messageType,String messageText);
 }
