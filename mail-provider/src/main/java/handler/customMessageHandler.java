@@ -14,8 +14,19 @@ public abstract class customMessageHandler<T> extends mailMessageHandler<T> {
     @Override
     protected abstract T assemble(String originMessageText);
 
+
     @Override
-    public void doHandle(Object payload) {
+    protected void doHandleInternal(Object payload) {
 
     }
+
+    /**
+     * 开始申报海关上下文的信息
+     */
+    protected void solveSomething() {
+
+    }
+
+
+
 }
