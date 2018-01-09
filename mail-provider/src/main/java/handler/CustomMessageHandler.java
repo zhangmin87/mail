@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Created by Administrator on 2018/1/8.
  */
-public abstract class customMessageHandler<T> extends mailMessageHandler<T> {
+public abstract class CustomMessageHandler<T> extends mailMessageHandler<T> {
 
     //Logger
     protected Logger logger = LoggerFactory.getLogger(getClass());
@@ -16,16 +16,23 @@ public abstract class customMessageHandler<T> extends mailMessageHandler<T> {
 
 
     @Override
-    protected void doHandleInternal(Object payload) {
+    protected void doHandleInternal(T payload) {
 
     }
 
     /**
      * 开始申报海关上下文的信息
      */
-    protected void solveSomething() {
-
+    protected void solveSomething(T payload) {
+        validate(payload);
+        logger.info("消费掉。。。。。。");
     }
+
+    /**
+     * 基本的校验
+     * @param payload
+     */
+    protected abstract void validate(T payload);
 
 
 

@@ -6,7 +6,7 @@ import javax.jms.Message;
 /**
  * Created by Administrator on 2018/1/8.
  */
-public abstract class mailMessageHandler<T> extends AbstractMessage {
+public abstract class mailMessageHandler<T> extends AbstractMessage<T> {
 
     @Resource(name = "mapMessageHandlerRegistry")
     private MessageHandlerRegister register;
