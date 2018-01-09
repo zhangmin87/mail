@@ -14,6 +14,7 @@ import javax.jms.Destination;
 
 /**
  * Created by Administrator on 2017/12/29.
+ * mq 信息的发送
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:META-INF/spring/spring-jms.xml"})

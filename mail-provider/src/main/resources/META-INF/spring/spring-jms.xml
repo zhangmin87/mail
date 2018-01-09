@@ -65,5 +65,5 @@
 
     <context:property-placeholder location="classpath:env/local/*.properties"/>
     <!-- 扫描service -->
-    <context:component-scan base-package="test.mq"/>
+    <context:component-scan base-package="test.mq,handler"/>
 </beans>

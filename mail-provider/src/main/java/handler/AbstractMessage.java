@@ -6,7 +6,7 @@ import org.springframework.beans.factory.InitializingBean;
 /**
  * Created by Administrator on 2018/1/8.
  */
-public abstract class AbstractMessage<T> implements MessageHandler<String >,InitializingBean,DisposableBean {
+public abstract class AbstractMessage<T> implements MessageHandler<String>,InitializingBean,DisposableBean {
 
     private int retries = 0;
 
