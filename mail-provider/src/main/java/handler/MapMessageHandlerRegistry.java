@@ -28,6 +28,7 @@ public class MapMessageHandlerRegistry implements MessageHandlerRegister {
         if (messageHandlers.get(name) !=null && !ignore) {
             unregister(name);
         }
+        messageHandlers.put(name,mh);
     }
 
     @Override

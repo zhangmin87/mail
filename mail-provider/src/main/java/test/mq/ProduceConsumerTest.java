@@ -27,7 +27,7 @@ public class ProduceConsumerTest {
     @Test
     public void testSend() {
         for (int i=0;i<3;i++) {
-            producerService.sendMessage("mail.mqs","hello world"+(i+1));
+            producerService.sendMessage("mail.mqs","hello world"+(i+1),"api_send_outbound_customs_cargo" );
         }
     }
 }

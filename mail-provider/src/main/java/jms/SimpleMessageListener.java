@@ -44,7 +44,6 @@ public class SimpleMessageListener implements MessageListener{
                 throw new Exception("仅支持TextMessage");
             }
         } catch (Exception e) {
-
             e.printStackTrace();
         }
 

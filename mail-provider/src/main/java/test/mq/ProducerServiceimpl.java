@@ -27,12 +27,14 @@ public class ProducerServiceimpl implements ProducerService{
 
 
     @Override
-    public void  sendMessage(String receivedestination, final String message) {
+    public void  sendMessage(String receivedestination, final String messageTest,String messageType) {
         logger.info("生产者产生了第一条消息");
         jmsTemplate.send(receivedestination, new MessageCreator() {
             @Override
         public Message createMessage(Session session) throws JMSException {
-            return session.createTextMessage(message);
+            Message message  = jmsTemplate.getMessageConverter().toMessage(messageTest,session);
+            message.setObjectProperty("MQ_MESSAGE_TYPE",messageType);
+            return message;
         }
         });
     }

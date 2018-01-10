@@ -10,7 +10,7 @@ import javax.jms.Destination;
  * 发送mq的工具
  */
 public interface ProducerService {
-    void sendMessage(String destination, final String message);
+    void sendMessage(String receivedestination, final String messageTest,String messageType);
     //// FIXME: 2018/1/4 参考ceb 项目看看怎么开发的
 //    void send(JmsTemplate jmsTemplate,String destionName,String messageType,String messageText);
 }

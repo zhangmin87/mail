@@ -25,7 +25,7 @@ public abstract class CustomMessageHandler<T> extends mailMessageHandler<T> {
      */
     protected void solveSomething(T payload) {
         validate(payload);
-        logger.info("消费掉。。。。。。");
+        logger.info("消费掉了");
     }
 
     /**

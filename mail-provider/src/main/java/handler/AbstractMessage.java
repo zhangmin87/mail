@@ -12,11 +12,12 @@ public abstract class AbstractMessage<T> implements MessageHandler<String>,Initi
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        if (getRegistry() !=null) {
+        if (getRegistry() != null) {
             getRegistry().register(getMessageType(),this);
         }
     }
 
+    @Override
     public void doHandle(String originMessageText) {
         //消息文本 -> DTO 对象
         T payload = assemble(originMessageText);
@@ -41,6 +42,8 @@ public abstract class AbstractMessage<T> implements MessageHandler<String>,Initi
         }
     }
 
+
+
     protected abstract void doHandleInternal(T payload);
 
     protected abstract T assemble(String originMessageText);
@@ -48,8 +51,6 @@ public abstract class AbstractMessage<T> implements MessageHandler<String>,Initi
     public abstract MessageHandlerRegister getRegistry();
 
     protected abstract String getMessageType();
-
-
 
     public int getRetries() {
         return retries;
