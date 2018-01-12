@@ -15,4 +15,5 @@ public abstract class mailMessageHandler<T> extends AbstractMessage<T> {
     public MessageHandlerRegister getRegistry() {
         return register;
     }
+
 }

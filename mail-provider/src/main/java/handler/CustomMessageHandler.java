@@ -11,13 +11,16 @@ public abstract class CustomMessageHandler<T> extends mailMessageHandler<T> {
     //Logger
     protected Logger logger = LoggerFactory.getLogger(getClass());
 
+
+
+
     @Override
     protected abstract T assemble(String originMessageText);
 
 
     @Override
     protected void doHandleInternal(T payload) {
-
+        logger.info("开始处理信息");
     }
 
     /**

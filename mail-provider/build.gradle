@@ -62,6 +62,9 @@ dependencies {
     compile "org.apache.activemq:activemq-pool:$activemqVersion"
     compile "org.apache.activemq:activemq-client:$activemqVersion"
 
+    compile "org.springframework.data:spring-data-redis:$springdataVersion"
+    compile "redis.clients:jedis:$jedisVersion"
+
 //    compile fileTree(dir:'lib',includes: ['*.jar'])
     // dangdang config-toolkit & apache curator
 //    compile "com.dangdang:config-common:3.0.0-RELEASE"
