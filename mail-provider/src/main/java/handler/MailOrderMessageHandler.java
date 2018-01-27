@@ -11,6 +11,16 @@ import org.springframework.stereotype.Component;
 public class MailOrderMessageHandler<T> extends CustomMessageHandler<T> {
     Logger logger = LoggerFactory.getLogger(MailOrderMessageHandler.class);
 
+
+//    @Override
+//    protected void validate(T payload) {
+//        logger.info("开始验证");
+//        logger.info("----------");
+//        logger.info("结束验证");
+//    }
+
+
+
     @Override
     protected void validate(T payload) {
         logger.info("开始验证");
