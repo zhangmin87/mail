@@ -5,11 +5,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
             http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- FIXME 加载配置 -->
-    <context:property-placeholder location="classpath:env/local/*.properties"/>
+
     <dubbo:application name="mail_dubbo_provider"/>
     <!-- 使用zookeeper注册中心暴露服务地址 -->
-    <dubbo:registry protocol="zookeeper" address="127.0.0.1" check="false"  register="" file="${user.home}/dubbo/cache/ceb-dubbo-provider.cache"/>
+    <dubbo:registry protocol="zookeeper" address="${zk.address}" check="false"  register="" file="${user.home}/dubbo/cache/ceb-dubbo-provider.cache"/>
     <!-- 配置服务提供者协议、服务的监听端口 -->
     <dubbo:protocol id="dubbo" name="dubbo" port="20880"/>
 

@@ -25,5 +25,10 @@
     <context:property-placeholder location="classpath:env/local/*.properties"/>
     <context:component-scan base-package="start.impl"/>
     <context:component-scan base-package="start.impl,test.mq"/>
+    <context:component-scan base-package="test.mq,handler"/>
+    <context:component-scan base-package="redis"></context:component-scan>
+    <!-- 扫描service -->
+    <context:component-scan base-package="test.mq,handler"/>
+
 
 </beans>
