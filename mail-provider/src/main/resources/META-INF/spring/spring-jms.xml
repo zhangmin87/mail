@@ -50,16 +50,16 @@
 
 
 
-    <!-- 消息监听处理类 -->
-    <bean id="jmsContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
-        <property name="connectionFactory" ref="connectionFactory"/>
-        <property name="destinationName" value="${queue.sender.mail.cargo.name}"/>
-        <property name="messageListener">
-            <bean class="jms.SimpleMessageListener">
-                <property name="registry" ref="mapMessageHandlerRegistry"/>
-            </bean>
-        </property>
-    </bean>
+    <!--&lt;!&ndash; 消息监听处理类 &ndash;&gt;-->
+    <!--<bean id="jmsContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">-->
+        <!--<property name="connectionFactory" ref="connectionFactory"/>-->
+        <!--<property name="destinationName" value="${queue.sender.mail.cargo.name}"/>-->
+        <!--<property name="messageListener">-->
+            <!--<bean class="jms.SimpleMessageListener">-->
+                <!--<property name="registry" ref="mapMessageHandlerRegistry"/>-->
+            <!--</bean>-->
+        <!--</property>-->
+    <!--</bean>-->
     <!--简易的注册中心 -->
     <bean id="mapMessageHandlerRegistry" class="handler.MapMessageHandlerRegistry"/>
 

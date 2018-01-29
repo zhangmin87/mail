@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import start.service.Test;
 import test.service.DubboDemo;
 
 
@@ -22,10 +21,8 @@ public class TestController {
     private static Logger logger = Logger.getLogger(TestController.class);
 
     @Autowired
-    private Test testClient;
+    private DubboDemo testClient;
 
-    @Autowired
-    private DubboDemo dubboDemo;
 
     @RequestMapping(method = {RequestMethod.GET,RequestMethod.POST})
     public  ModelAndView login()  {
@@ -33,14 +30,10 @@ public class TestController {
         logger.warn("I am warn");
         logger.info("I am message");
         logger.debug("I am debug");
-        String  a = testClient.show();
-        String  b = dubboDemo.doSave();
+        String  a = testClient.getTestRedis();
         ModelAndView modelAndView = new ModelAndView("jsp/first");
-        modelAndView.addObject("demo",b);
+        modelAndView.addObject("demo",a);
         return modelAndView;
     }
 
-    protected int testTo(String name) {
-        return 5;
-    }
 }

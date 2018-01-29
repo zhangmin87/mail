@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
-import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.Session;

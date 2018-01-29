@@ -14,4 +14,10 @@ public class DubboDemoimpl implements DubboDemo {
     public String doSave() {
         return "stary hungry,stary folish";
     }
+
+    @Override
+    public String getTestRedis() {
+        String redisString = "helloWorld";
+        return redisString;
+    }
 }

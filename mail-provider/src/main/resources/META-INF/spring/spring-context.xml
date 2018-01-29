@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!--
+            <dubbo:application name="ceb-dubbo-provider"/>
 
-        <dubbo:application name="ceb-dubbo-provider"/>
+            &lt;!&ndash; 使用ZooKeeper广播注册中心暴露服务地址 &ndash;&gt;
+            <dubbo:registry protocol="zookeeper" address="${zk.address}" file="${user.home}/dubbo/cache/ceb-dubbo-provider.cache"/>
 
-        <!-- 使用ZooKeeper广播注册中心暴露服务地址 -->
-        <dubbo:registry protocol="zookeeper" address="${zk.address}" file="${user.home}/dubbo/cache/ceb-dubbo-provider.cache"/>
+            &lt;!&ndash; 配置服务提供者协议、服务的监听端口 &ndash;&gt;
+            <dubbo:protocol id="dubbo" name="dubbo" port="20880"/>
 
-        <!-- 配置服务提供者协议、服务的监听端口 -->
-        <dubbo:protocol id="dubbo" name="dubbo" port="20880"/>
+            &lt;!&ndash; 启用监控 &ndash;&gt;
+            &lt;!&ndash;    <dubbo:monitor protocol="registry"/>&ndash;&gt;
 
-        <!-- 启用监控 -->
-            <dubbo:monitor protocol="registry"/>
-
-        <!-- dubbo服务端统一配置 -->
-        <dubbo:provider threads="200" timeout="15000" retries="0"/>-->
+            &lt;!&ndash; dubbo服务端统一配置 &ndash;&gt;
+            <dubbo:provider threads="200" timeout="15000" retries="0"/>-->
     <!-- 提供方应用名称信息，这个相当于起了一个名字,我们dubbo管理页面比较清晰是哪个应该暴露出来的 -->
 
     <!-- 要暴露的服务接口 -->
 
     <!-- FIXME 加载配置 -->
     <context:property-placeholder location="classpath:env/local/*.properties"/>
+    <context:component-scan base-package="start.impl"/>
     <context:component-scan base-package="start.impl,test.mq"/>
+
 </beans>

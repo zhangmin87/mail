@@ -61,4 +61,14 @@ public class CustomDao extends BaseDao {
             return false;
         }
     }
+    //删除单个节点
+    public boolean delete(String key) {
+        redisTemplate.delete(key);
+        try{
+            return true;
+        }catch (Exception e) {
+            logger.info("删除失败:{}",e.getMessage());
+        }
+        return true;
+    }
 }

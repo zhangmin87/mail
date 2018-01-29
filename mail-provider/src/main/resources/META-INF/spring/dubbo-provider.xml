@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
-            http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+            http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-
+    <!-- FIXME 加载配置 -->
+    <context:property-placeholder location="classpath:env/local/*.properties"/>
     <dubbo:application name="mail_dubbo_provider"/>
     <!-- 使用zookeeper注册中心暴露服务地址 -->
-    <dubbo:registry protocol="zookeeper" address="${zk.address}" check="false"  register="" file="${user.home}/dubbo/cache/ceb-dubbo-provider.cache"/>
+    <dubbo:registry protocol="zookeeper" address="127.0.0.1" check="false"  register="" file="${user.home}/dubbo/cache/ceb-dubbo-provider.cache"/>
     <!-- 配置服务提供者协议、服务的监听端口 -->
     <dubbo:protocol id="dubbo" name="dubbo" port="20880"/>
 
     <dubbo:provider threads="200" timeout="15000" retries="0"/>
-    <!-- 要暴露的服务接口 -->
-    <dubbo:service interface="test.service.Test" ref="test"  validation="true" version="1.0.0"/>
+
     <!-- dubbo 测试服务 -->
     <dubbo:service interface="test.service.DubboDemo" ref="dubboDemo"  validation="true" version="1.0.0"/>
-    <!-- dubbo 测试 -->
 
 </beans>
