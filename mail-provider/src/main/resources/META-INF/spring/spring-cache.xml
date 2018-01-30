@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:cache="http://www.springframework.org/schema/cache"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <cache:annotation-driven cache-manager="cacheManager" />
+    <!--启用缓存注解功能,这个是必须的，否则注解不会失效，另外
+     该注解一定要声明在spring主要配置中才会生效
+     -->
     <!-- 连接池配置 最大空闲数、最大连接数、最长等待时间、连接是否可用 -->
     <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
         <property name="maxIdle" value="${redis.maxIdle}" />
@@ -21,5 +27,17 @@
     <!-- 暴露一个redisTemplate 用作redis一系列操作 -->
     <bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">
         <property name="connectionFactory" ref="connectionFactory1" />
+    </bean>
+    <!-- spring 自己的缓存管理器,这里定义了缓存位置名称，即注解中value -->
+    <bean id = "cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+        <property name="caches">
+            <set>
+                <!-- 这里可以配置多个redis -->
+                <bean class="com">
+
+                </bean>
+
+            </set>
+        </property>
     </bean>
 </beans>

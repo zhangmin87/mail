@@ -1,6 +1,7 @@
 package start.impl;
 
         import org.apache.zookeeper.ZooKeeper;
+        import org.springframework.cache.annotation.Cacheable;
         import org.springframework.stereotype.Service;
         import test.service.DubboDemo;
 
@@ -13,6 +14,7 @@ public class DubboDemoimpl implements DubboDemo {
 
 
 
+    @Cacheable
     @Override
     public String doSave() {
         return "stary hungry,stary folish";
@@ -20,8 +22,7 @@ public class DubboDemoimpl implements DubboDemo {
 
     @Override
     public String getTestRedis() {
-        String redisString = "helloWorld";
-
+        String redisString = "hello zhang";
         return redisString;
     }
 }
