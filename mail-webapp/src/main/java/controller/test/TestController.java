@@ -26,9 +26,6 @@ public class TestController {
 
     @RequestMapping(method = {RequestMethod.GET,RequestMethod.POST})
     public  ModelAndView login()  {
-        logger.error("I am error");
-        logger.warn("I am warn");
-        logger.info("I am message");
         logger.debug("I am debug");
         String  a = testClient.getTestRedis();
         ModelAndView modelAndView = new ModelAndView("jsp/first");
