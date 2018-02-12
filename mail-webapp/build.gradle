@@ -123,9 +123,11 @@ dependencies {
     compile "org.apache.activemq:activemq-pool:$activemqVersion"
     compile "org.apache.activemq:activemq-client:$activemqVersion"
     //--------------------------------------------------------------------------------------------分割线
+
+    //redis
+    compile "org.springframework.data:spring-data-redis:$springdataVersion"
+    compile "redis.clients:jedis:$jedisVersion"
     //dubbo   这里使用的是dubbo 2.5.4
-
-
     compile "com.alibaba:dubbo:$dubboVersion"
     compile "org.apache.zookeeper:zookeeper:$zookeeperVersion"
     compile "com.github.sgroschupf:zkclient:$zkclientVersion"

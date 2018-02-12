@@ -1,6 +1,7 @@
 package redisTest;
 
 
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class RedisTest{
     @Autowired
     private CustomDao c;
 
-//    @Test
+    @Test
     public void test() {
         logger.info("=====start======");
 
@@ -32,7 +33,7 @@ public class RedisTest{
 //        logger.info("查询redis中值:{}",c.select("java:string:english"));
 //        c.insertString("java:string:cn","redis学习");
 //        logger.info("查看redis中值:{}",c.select("java:string:cn"));
-//
+
 //        List<Object> list = new ArrayList();
 //        list.add("redis学习");
 //        list.add("123456789");
@@ -43,7 +44,7 @@ public class RedisTest{
 //        map.put("A", "sss");
 //        map.put("AB", "sssdf");
 //        c.insertList("java:list", map.toString());
-          logger.info("查询redis中的值:{}",c.select("name"));
+        logger.info("查询redis中的值:{}",c.select("name"));
 
 //
         //创建一个列表之后，再次添加一个Map到列表里面
@@ -56,7 +57,5 @@ public class RedisTest{
         //删除缓存的数据
         c.delete("name");
         logger.info("查询redis 中的值:{}",c.select("name")); ;
-
-
     }
 }

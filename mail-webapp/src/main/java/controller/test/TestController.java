@@ -27,10 +27,10 @@ public class TestController {
     @RequestMapping(method = {RequestMethod.GET,RequestMethod.POST})
     public  ModelAndView login()  {
         logger.debug("I am debug");
-        String  a = testClient.getTestRedis();
+        String param1 = "keyparms";
+        String  a = testClient.getTestRedis(param1);
         ModelAndView modelAndView = new ModelAndView("jsp/first");
         modelAndView.addObject("demo",a);
         return modelAndView;
     }
-
 }
