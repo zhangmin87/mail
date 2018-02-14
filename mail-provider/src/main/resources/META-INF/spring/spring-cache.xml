@@ -22,21 +22,21 @@
     <bean id="connectionFactory1"
           class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory" >
         <property name="hostName" value= "${redis.hostName}" />
-        <property name="port" value="${redis.port}" />
+        <property name="port" value= "${redis.port}" />
         <property name="poolConfig" ref="poolConfig" />
     </bean>
 
+    <bean id="StringRedisSerializer" class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
     <!-- 暴露一个redisTemplate 用作redis一系列操作 -->
     <bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">
         <property name="connectionFactory" ref="connectionFactory1" />
+        <property name="stringSerializer" ref="StringRedisSerializer"/>
     </bean>
     <!-- spring 自己的缓存管理器,这里定义了缓存位置名称，即注解中value -->
-    <bean id = "cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
-        <property name="caches">
-            <set>
-                <!-- 这里可以配置多个redis -->
-                <bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" p:name = "user"  />
-            </set>
-        </property>
+    <bean id = "cacheManager" class="org.springframework.data.redis.cache.RedisCacheManager">
+        <constructor-arg ref = "redisTemplate"/>
+        <property name="defaultExpiration" value="3000"/>
+        <property name="cacheNames" value="data"/>
+
     </bean>
 </beans>

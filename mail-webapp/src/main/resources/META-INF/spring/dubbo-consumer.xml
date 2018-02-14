@@ -16,4 +16,6 @@
 <!-- 测试服务-->
     <!-- dubbo 测试服务 -->
 <dubbo:reference id="dubbbClient" interface="test.service.DubboDemo" validation="true" version="1.0.0"/>
+    <!-- redis 测试服务 -->
+<dubbo:reference id="dubboClient" interface="redis.IredisService" validation="true" version="1.0.0"/>
 </beans>

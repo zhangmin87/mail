@@ -1,23 +1,27 @@
 package redis;
 
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by Administrator on 2018/2/12.
  */
+
+@Service("iredisService")
 public class IRedisServiceImpl implements IredisService {
 
     /**
-     * 用于查询的注解，第一次查询的时候返回该方法返回值，并向redis服务器保存数据
-     * 以后的查询将不再执行方法体内的代码，而是直接查询redis服务器获取数据并返回
+     * 用于查询的注解，第一次查询的时候返回该方法而是直接查询redis服务器获取数据并返回返回值，并向redis服务器保存数据
+     * 以后的查询将不再执行方法体内的代码，
      * value 属性做键，key 属性则可以看作为value的子键，
      * 一个value可以有多个key 组成不同值在redis 服务器，
      * 这里再介绍一个属性是condition,用法condition= '#key<10',
      */
     @Override
-    @Cacheable(value = "redis",key= "#key",condition = "#key<10")
+    //redis中存在数据量的时候，我们可以发现中
+    @Cacheable(value = "data",key= "'com.forwarder.entity.sys.Menu@menuId='+#key",condition = "#key<10")
     public String cacheable(int key) throws Exception {
-        return null;
+        return "hello redis";
     }
 
     /**

@@ -18,11 +18,10 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
 	<context:component-scan
-			base-package="controller.test"/>
+			base-package="controller.test,controller.redisController"/>
 	<!-- 定义HanlderMapping -->
 	<mvc:annotation-driven />
 	<import resource="dubbo-consumer.xml"/>
-	<import resource="spring-cache.xml"/>
 
 	<!-- JSP视图解析器 -->
 	<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
