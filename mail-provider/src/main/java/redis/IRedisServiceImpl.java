@@ -1,7 +1,12 @@
 package redis;
 
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
+
+import java.util.*;
 
 /**
  * Created by Administrator on 2018/2/12.
@@ -17,11 +22,19 @@ public class IRedisServiceImpl implements IredisService {
      * 一个value可以有多个key 组成不同值在redis 服务器，
      * 这里再介绍一个属性是condition,用法condition= '#key<10',
      */
-    @Override
     //redis中存在数据量的时候，我们可以发现中
+    @Override
     @Cacheable(value = "data",key= "'com.forwarder.entity.sys.Menu@menuId='+#key",condition = "#key<10")
-    public String cacheable(int key) throws Exception {
-        return "hello redis";
+    public Set<String> cacheable(int key) throws Exception {
+        List<String> list = new ArrayList<>();
+        for (int i=0;i<10;i++) {
+            list.add(String.valueOf(i));
+        }
+        if (CollectionUtils.isEmpty(list)) {
+            return Collections.emptySet();
+        }
+
+        return new HashSet<String>(list);
     }
 
     /**
@@ -29,18 +42,17 @@ public class IRedisServiceImpl implements IredisService {
      * 用于更新数据库或新增数据时的注解，更新redis服务器中该value的值
      */
     @Override
-    @Cacheable(value="redis",key="#key",condition="#key<10")
-    public String cacheEvict(int key) throws Exception {
-        return null;
+    @CachePut(value="data",key="'com.forwarder.entity.sys.Menu@menuId='+#key",condition = "#key<10")
+    public String cachePut(int key) throws Exception {
+        return "redis  checked";
     }
 
     /**
-     * 用于删除数据库操作时的注解，删除redis数据库中该value对应的数据
-     *
+     * 用于删除数据
      */
     @Override
-    @Cacheable
-    public String cachePut(int key) throws Exception {
-        return null;
+    @CacheEvict(value = "data",key = "'com.forwarder.entity.sys.Menu@menuId='+#key")
+    public String cacheEvict(int key) throws Exception {
+        return "redis evict";
     }
 }

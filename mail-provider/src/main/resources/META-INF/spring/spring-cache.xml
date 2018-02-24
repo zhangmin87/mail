@@ -28,8 +28,8 @@
 
     <bean id="StringRedisSerializer" class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
     <!-- 暴露一个redisTemplate 用作redis一系列操作 -->
-    <bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">
-        <property name="connectionFactory" ref="connectionFactory1" />
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+        <property name="connectionFactory" ref="connectionFactory1"/>
         <property name="stringSerializer" ref="StringRedisSerializer"/>
     </bean>
     <!-- spring 自己的缓存管理器,这里定义了缓存位置名称，即注解中value -->
@@ -37,6 +37,5 @@
         <constructor-arg ref = "redisTemplate"/>
         <property name="defaultExpiration" value="3000"/>
         <property name="cacheNames" value="data"/>
-
     </bean>
 </beans>

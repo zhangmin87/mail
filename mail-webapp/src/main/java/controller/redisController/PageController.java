@@ -6,9 +6,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import redis.IredisService;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Administrator on 2018/2/12.
@@ -22,11 +27,51 @@ public class PageController {
     @Autowired
     private IredisService iredisService;
 
+    /**
+     * 初始化
+     * @param request
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(method = {RequestMethod.GET,RequestMethod.POST})
     public ModelAndView cacheable(HttpServletRequest request) throws Exception {
         logger.debug("I am debug");
         int key = Integer.valueOf(request.getParameter("key"));
-        String msg =  iredisService.cacheable(key);
+        Set<String> msgList = iredisService.cacheable(key);
+        ModelAndView modelAndView = new ModelAndView("jsp/first");
+        modelAndView.addObject("demo",msgList);
+        return modelAndView;
+    }
+
+    /**
+     * 更新redis
+     * @param request
+     * @param response
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "put",method = {RequestMethod.GET,RequestMethod.POST})
+    public ModelAndView cachePut(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        logger.debug("I am debug");
+        int key = Integer.valueOf(request.getParameter("key"));
+        String msg = iredisService.cachePut(key);
+        ModelAndView modelAndView = new ModelAndView("jsp/first");
+        modelAndView.addObject("demo",msg);
+        return modelAndView;
+    }
+
+    /**
+     * 删除redis中redis缓存的信息
+     * @param request
+     * @param response
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "evict",method = {RequestMethod.GET,RequestMethod.POST})
+    public ModelAndView cacheEvict(HttpServletRequest request,HttpServletResponse response) throws Exception {
+        logger.debug("I am debug");
+        int key = Integer.valueOf(request.getParameter("key"));
+        String msg = iredisService.cacheEvict(key);
         ModelAndView modelAndView = new ModelAndView("jsp/first");
         modelAndView.addObject("demo",msg);
         return modelAndView;
