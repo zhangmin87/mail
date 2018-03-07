@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Set;
+import java.util.SortedSet;
 
 /**
  * Created by Administrator on 2018/2/12.
@@ -29,7 +30,7 @@ public class PageController {
 
     /**
      * 初始化
-     * @param request
+     * @param
      * @return
      * @throws Exception
      */
@@ -37,7 +38,7 @@ public class PageController {
     public ModelAndView cacheable(HttpServletRequest request) throws Exception {
         logger.debug("I am debug");
         int key = Integer.valueOf(request.getParameter("key"));
-        Set<String> msgList = iredisService.cacheable(key);
+        SortedSet<String> msgList = iredisService.cacheable(key);
         ModelAndView modelAndView = new ModelAndView("jsp/first");
         modelAndView.addObject("demo",msgList);
         return modelAndView;

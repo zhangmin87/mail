@@ -22,19 +22,34 @@ public class IRedisServiceImpl implements IredisService {
      * 一个value可以有多个key 组成不同值在redis 服务器，
      * 这里再介绍一个属性是condition,用法condition= '#key<10',
      */
-    //redis中存在数据量的时候，我们可以发现中
+    /**
+     * set 集合是一种无序集合
+     * @param key
+     * @return
+     * @throws Exception
+     */
+    /**
+     * re
+     * @param key
+     * @return
+     * @throws Exception
+     */
     @Override
     @Cacheable(value = "data",key= "'com.forwarder.entity.sys.Menu@menuId='+#key",condition = "#key<10")
-    public Set<String> cacheable(int key) throws Exception {
-        List<String> list = new ArrayList<>();
-        for (int i=0;i<10;i++) {
-            list.add(String.valueOf(i));
-        }
-        if (CollectionUtils.isEmpty(list)) {
-            return Collections.emptySet();
-        }
-
-        return new HashSet<String>(list);
+    public SortedSet<String> cacheable(int key) throws Exception {
+//        List<String> list = new ArrayList<>();
+//        for (int i=0;i<50;i++) {
+//            list.add(String.valueOf(i));
+//        }
+        SortedSet<String> sortedSet = new TreeSet<>();
+        sortedSet.add("1");
+        sortedSet.add("M");
+        sortedSet.add("A");
+        sortedSet.add("B");
+        sortedSet.add("C");
+        sortedSet.add("D");
+        sortedSet.add("E");
+        return sortedSet;
     }
 
     /**
@@ -44,7 +59,7 @@ public class IRedisServiceImpl implements IredisService {
     @Override
     @CachePut(value="data",key="'com.forwarder.entity.sys.Menu@menuId='+#key",condition = "#key<10")
     public String cachePut(int key) throws Exception {
-        return "redis  checked";
+        return "redis checked";
     }
 
     /**
