@@ -12,32 +12,27 @@ import java.util.TreeSet;
 public class SortedRedisTest {
 
     public static void main(String[] args) {
-//        //连接本地的redis服务
-//        Jedis jedis = new Jedis("127.0.0.1",6381);
-//        System.out.println("连接成功");
-//        //密码验证
-//        //存储zset类型缓存数据
-//        jedis.zadd("test-zset",1,"java");
-//        jedis.zadd("test-zset",3,"c++");
-//        jedis.zadd("test-zset",2,"PHP");
-//        jedis.zadd("test-zset",2,"PHP");
-//        //获取zSet缓存数据类型
-//        Set<String> setCache = jedis.zrange("test-zset",0,1);
-//        for (String setStr : setCache) {
-//            System.out.println("获取zset缓存数据:" +setStr);
-//        }
-        SortedSet<String> allSet = new TreeSet<String>();
-        allSet.add("K");
-        allSet.add("B");
-        allSet.add("C");
-        allSet.add("C");
-        allSet.add("C");
-        allSet.add("E");
-        allSet.add("D");
-        System.out.println("第一个元素"+allSet.first());
-        System.out.println("最后一个元素"+allSet.last());
-        System.out.println("headSet元素"+allSet.headSet("C"));
-        System.out.println("tailSet元素"+allSet.tailSet("C"));
-        System.out.println("subSet元素" +allSet.subSet("B","D"));
+        //使用Redis  Sorted Set 解决游戏中排行榜问题
+        Jedis jedis = new Jedis("127.0.0.1",6381);
+
+        //比如坐骑排行榜,需求中仅仅设计排名问题.
+        jedis.zadd("k", 5, "UserName_House_1");
+        jedis.zadd("k", 2, "UserName_House_2");
+        jedis.zadd("k", 4, "UserName_House_3");
+        jedis.zadd("k", 6, "UserName_House_4");
+
+        //获取指定区间排名
+        Set<String> fset = jedis.zrange("HouseRank", 0, 1);
+
+        for (String s : fset) {
+            System.out.println(s);
+        }
+        //获取指定成员排名
+        Long rank = jedis.zrank("k", "UserName_House_3");
+        System.out.println("排名:"+rank);
+
+        //获取指定成员分数
+        Double score = jedis.zscore("k", "UserName_House_3");
+        System.out.println("分数:"+score);
     }
 }

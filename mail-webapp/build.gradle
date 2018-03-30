@@ -67,6 +67,7 @@ dependencies {
     compile "org.springframework:spring-tx:$springframeworkVersion"
     compile "org.springframework:spring-webmvc:$springframeworkVersion"
     compile "org.springframework:spring-web:$springframeworkVersion"
+    compile "org.springframework.session:spring-session:1.2.1.RELEASE"
 
     compile 'org.aspectj:aspectjweaver:1.8.6'
     compile 'mysql:mysql-connector-java:5.1.36'

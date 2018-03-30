@@ -1,10 +1,12 @@
 package redis;
 
+import dto.StudentGradeDTO;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
+import redis.clients.jedis.Jedis;
+
 
 import java.util.*;
 
@@ -24,32 +26,67 @@ public class IRedisServiceImpl implements IredisService {
      */
     /**
      * set 集合是一种无序集合
+     *
      * @param key
      * @return
      * @throws Exception
      */
     /**
-     * re
+     * list
      * @param key
      * @return
      * @throws Exception
      */
     @Override
     @Cacheable(value = "data",key= "'com.forwarder.entity.sys.Menu@menuId='+#key",condition = "#key<10")
-    public SortedSet<String> cacheable(int key) throws Exception {
-//        List<String> list = new ArrayList<>();
-//        for (int i=0;i<50;i++) {
-//            list.add(String.valueOf(i));
-//        }
-        SortedSet<String> sortedSet = new TreeSet<>();
-        sortedSet.add("1");
-        sortedSet.add("M");
-        sortedSet.add("A");
-        sortedSet.add("B");
-        sortedSet.add("C");
-        sortedSet.add("D");
-        sortedSet.add("E");
-        return sortedSet;
+    
+    public Set<StudentGradeDTO> cacheable(int key) throws Exception {
+        //// FIXME: 2018/3/16 redis 设计成缓存
+//        //学生一
+        StudentGradeDTO studentGradeDTO = new StudentGradeDTO();
+        studentGradeDTO.setScore(25.0);
+        studentGradeDTO.setStudentName("zhangmin");
+
+        //学生二
+        StudentGradeDTO studentGradeDTO1 = new StudentGradeDTO();
+        studentGradeDTO1.setStudentName("juFang");
+        studentGradeDTO1.setScore(340.0);
+        //学生三
+        StudentGradeDTO studentGradeDTO2 = new StudentGradeDTO();
+        studentGradeDTO2.setStudentName("Lujiang");
+        studentGradeDTO2.setScore(34.0);
+
+        SortedSet<StudentGradeDTO> studentGradeDTOs = new TreeSet<>();
+        studentGradeDTOs.add(studentGradeDTO);
+        studentGradeDTOs.add(studentGradeDTO1);
+        studentGradeDTOs.add(studentGradeDTO2);
+        Jedis jedis = new Jedis("127.0.0.1",6381);
+//        jedis.zadd("n".getBytes(),studentGradeDTO1.getScore(),)
+
+//
+//
+//        return studentGradeDTOs;
+        //使用Redis  Sorted Set 解决游戏中排行榜问题
+//        Jedis jedis = new Jedis("127.0.0.1",6381);
+//
+//        //比如坐骑排行榜,需求中仅仅设计排名问题.
+//        jedis.zadd("n", Math.random(), "UserName_House_1");
+//        jedis.zadd("n", Math.random(), "UserName_House_2");
+//        jedis.zadd("n", Math.random(), "UserName_House_3");
+//        jedis.zadd("n", Math.random(), "UserName_House_4");
+//
+//        //获取指定区间排名
+//        Set<String> fset = jedis.zrange("HouseRank", 0, 5);
+
+
+//        //获取指定成员排名
+//        Long rank = jedis.zrank("n", "UserName_House_3");
+//        System.out.println("排名:"+rank);
+//
+//        //获取指定成员分数
+//        Double score = jedis.zscore("n", "UserName_House_3");
+//        System.out.println("分数:"+score);
+        return null;
     }
 
     /**

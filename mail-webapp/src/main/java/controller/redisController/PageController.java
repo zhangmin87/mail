@@ -1,5 +1,6 @@
 package controller.redisController;
 
+import dto.StudentGradeDTO;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,19 +39,14 @@ public class PageController {
     public ModelAndView cacheable(HttpServletRequest request) throws Exception {
         logger.debug("I am debug");
         int key = Integer.valueOf(request.getParameter("key"));
-        SortedSet<String> msgList = iredisService.cacheable(key);
+       // Set<String> msgList = iredisService.cacheable(key);
         ModelAndView modelAndView = new ModelAndView("jsp/first");
-        modelAndView.addObject("demo",msgList);
+        //modelAndView.addObject("demo",msgList);
         return modelAndView;
     }
 
-    /**
-     * 更新redis
-     * @param request
-     * @param response
-     * @return
-     * @throws Exception
-     */
+
+
     @RequestMapping(value = "put",method = {RequestMethod.GET,RequestMethod.POST})
     public ModelAndView cachePut(HttpServletRequest request, HttpServletResponse response) throws Exception {
         logger.debug("I am debug");
