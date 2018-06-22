@@ -1,8 +1,10 @@
 package controller.zookeeper;
 
+import org.apache.commons.lang3.concurrent.BackgroundInitializer;
 import org.apache.zookeeper.*;
 import org.apache.zookeeper.data.Stat;
-
+import org.apache.zookeeper.KeeperException;
+import org.apache.zookeeper.Watcher.Event.KeeperState;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -16,136 +18,144 @@ import java.util.concurrent.CountDownLatch;
  * Created by zhongdepeng on 2017/11/21.
  */
 public class DistributedLock3 implements Lock,Watcher {
-    private ZooKeeper zk;
-    private String root = "/locks";//根
-    private String lockName;//竞争资源的标志
-    private String waitNode;//等待前一个锁
-    private String myZnode;//当前锁
-    private CountDownLatch latch;//计数器
-    private CountDownLatch connectedSignal = new CountDownLatch(1);
-    private int sessionTimeout = 30000;
+
+    private ZooKeeper zk = null;
+    // 根节点
+    private String ROOT_LOCK = "/locks";
+    // 竞争的资源
+    private String lockName;
+    // 等待的前一个锁
+    private String WAIT_LOCK;
+    // 当前锁
+    private String CURRENT_LOCK;
+    // 计数器
+    private CountDownLatch countDownLatch;
+    private int sessionTimeout = 3000;
+    private List<Exception> exceptionList = new ArrayList<Exception>();
 
     /**
-     * 创建分布式锁,使用前请确认config配置的zookeeper服务可用
+     * 配置分布式锁
      *
-     * @param config   192.168.1.127:2181
-     * @param lockName 竞争资源标志,lockName中不能包含单词_lock_
+     * @param config   连接的url
+     * @param lockName 竞争资源
      */
     public DistributedLock3(String config, String lockName) {
         this.lockName = lockName;
-        // 创建一个与服务器的连接
         try {
+            // 连接zookeeper
             zk = new ZooKeeper(config, sessionTimeout, this);
-            connectedSignal.await();
-            Stat stat = zk.exists(root, false);//此去不执行 Watcher
+            Stat stat = zk.exists(ROOT_LOCK, false);
             if (stat == null) {
-                // 创建根节点
-                zk.create(root, new byte[0], ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+                // 如果根节点不存在，则创建根节点
+                zk.create(ROOT_LOCK, new byte[0], ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
             }
         } catch (IOException e) {
-            throw new LockException(e);
-        } catch (KeeperException e) {
-            throw new LockException(e);
+            e.printStackTrace();
         } catch (InterruptedException e) {
-            throw new LockException(e);
+            e.printStackTrace();
+        } catch (KeeperException e) {
+            e.printStackTrace();
         }
     }
 
-    /**
-     * zookeeper节点的监视器
-     */
+    //  节点监视器
     public void process(WatchedEvent event) {
-        //建立连接用
-        if (event.getState() == Event.KeeperState.SyncConnected) {
-            connectedSignal.countDown();
-            return;
-        }
-        //其他线程放弃锁的标志
-        if (this.latch != null) {
-            this.latch.countDown();
+        System.out.println(this.countDownLatch);
+        if (this.countDownLatch != null) {
+            this.countDownLatch.countDown();
         }
     }
 
     public void lock() {
+        if (exceptionList.size() > 0) {
+            throw new LockException(exceptionList.get(0));
+        }
         try {
             if (this.tryLock()) {
-                System.out.println("Thread " + Thread.currentThread().getId() + " " + myZnode + " get lock true");
+                System.out.println(Thread.currentThread().getName() + " " + lockName + "获得了锁");
                 return;
             } else {
-                waitForLock(waitNode, sessionTimeout);//等待锁
+                // 等待锁
+                waitForLock(WAIT_LOCK, sessionTimeout);
             }
-        } catch (KeeperException e) {
-            throw new LockException(e);
         } catch (InterruptedException e) {
-            throw new LockException(e);
+            e.printStackTrace();
+        } catch (KeeperException e) {
+            e.printStackTrace();
         }
     }
 
     public boolean tryLock() {
         try {
             String splitStr = "_lock_";
-            if (lockName.contains(splitStr))
-                throw new LockException("lockName can not contains \\u000B");
-            //创建临时子节点
-            myZnode = zk.create(root + "/" + lockName + splitStr, new byte[0], ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
-            System.out.println(myZnode + " is created ");
-            //取出所有子节点
-            List<String> subNodes = zk.getChildren(root, false);
-            //取出所有lockName的锁
-            List<String> lockObjNodes = new ArrayList<String>();
+            if (lockName.contains(splitStr)) {
+                throw new LockException("锁名有误");
+            }
+            // 创建临时有序节点
+            CURRENT_LOCK = zk.create(ROOT_LOCK + "/" + lockName + splitStr, new byte[0],
+                    ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
+            System.out.println(CURRENT_LOCK + " 已经创建");
+            // 取所有子节点
+            List<String> subNodes = zk.getChildren(ROOT_LOCK, false);
+            // 取出所有lockName的锁
+            List<String> lockObjects = new ArrayList<String>();
             for (String node : subNodes) {
                 String _node = node.split(splitStr)[0];
                 if (_node.equals(lockName)) {
-                    lockObjNodes.add(node);
+                    lockObjects.add(node);
                 }
             }
-            Collections.sort(lockObjNodes);
-
-            if (myZnode.equals(root + "/" + lockObjNodes.get(0))) {
-                //如果是最小的节点,则表示取得锁
-                System.out.println(myZnode + "==" + lockObjNodes.get(0));
+            Collections.sort(lockObjects);
+            System.out.println(Thread.currentThread().getName() + " 的锁是 " + CURRENT_LOCK);
+            // 若当前节点为最小节点，则获取锁成功
+            if (CURRENT_LOCK.equals(ROOT_LOCK + "/" + lockObjects.get(0))) {
                 return true;
             }
-            //如果不是最小的节点，找到比自己小1的节点
-            String subMyZnode = myZnode.substring(myZnode.lastIndexOf("/") + 1);
-            waitNode = lockObjNodes.get(Collections.binarySearch(lockObjNodes, subMyZnode) - 1);//找到前一个子节点
-        } catch (KeeperException e) {
-            throw new LockException(e);
+
+            // 若不是最小节点，则找到自己的前一个节点
+            String prevNode = CURRENT_LOCK.substring(CURRENT_LOCK.lastIndexOf("/") + 1);
+            WAIT_LOCK = lockObjects.get(Collections.binarySearch(lockObjects, prevNode) - 1);
         } catch (InterruptedException e) {
-            throw new LockException(e);
+            e.printStackTrace();
+        } catch (KeeperException e) {
+            e.printStackTrace();
         }
         return false;
     }
 
-    public boolean tryLock(long time, TimeUnit unit) {
+    public boolean tryLock(long timeout, TimeUnit unit) {
         try {
             if (this.tryLock()) {
                 return true;
             }
-            return waitForLock(waitNode, time);
+            return waitForLock(WAIT_LOCK, timeout);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return false;
     }
 
-    private boolean waitForLock(String lower, long waitTime) throws InterruptedException, KeeperException {
-        Stat stat = zk.exists(root + "/" + lower, true);//同时注册监听。
-        //判断比自己小一个数的节点是否存在,如果不存在则无需等待锁,同时注册监听
+    // 等待锁
+    private boolean waitForLock(String prev, long waitTime) throws KeeperException, InterruptedException {
+        Stat stat = zk.exists(ROOT_LOCK + "/" + prev, true);
+
         if (stat != null) {
-            System.out.println("Thread " + Thread.currentThread().getId() + " waiting for " + root + "/" + lower);
-            this.latch = new CountDownLatch(1);
-            this.latch.await(waitTime, TimeUnit.MILLISECONDS);//等待，这里应该一直等待其他线程释放锁
-            this.latch = null;
+            System.out.println(Thread.currentThread().getName() + "等待锁 " + ROOT_LOCK + "/" + prev);
+            this.countDownLatch = new CountDownLatch(1);
+            // 计数等待，若等到前一个节点消失，则precess中进行countDown，停止等待，获取锁
+            this.countDownLatch.await();
+//        停止等待    this.countDownLatch.await(waitTime, TimeUnit.MILLISECONDS);
+            this.countDownLatch = null;
+            System.out.println(Thread.currentThread().getName() + " 等到了锁");
         }
         return true;
     }
 
     public void unlock() {
         try {
-            System.out.println("unlock " + myZnode);
-            zk.delete(myZnode, -1);
-            myZnode = null;
+            System.out.println("释放锁 " + CURRENT_LOCK);
+            zk.delete(CURRENT_LOCK, -1);
+            CURRENT_LOCK = null;
             zk.close();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -154,13 +164,14 @@ public class DistributedLock3 implements Lock,Watcher {
         }
     }
 
+    public Condition newCondition() {
+        return null;
+    }
+
     public void lockInterruptibly() throws InterruptedException {
         this.lock();
     }
 
-    public Condition newCondition() {
-        return null;
-    }
 
     public class LockException extends RuntimeException {
         private static final long serialVersionUID = 1L;

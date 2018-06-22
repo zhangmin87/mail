@@ -65,20 +65,54 @@ dependencies {
     compile "org.springframework.data:spring-data-redis:$springdataVersion"
     compile "redis.clients:jedis:$jedisVersion"
 
+    compile "com.alibaba:dubbo:2.5.4"
+
+    // xxl-job
+    compile "com.xuxueli:xxl-job-core:1.9.1"
+
 //    compile fileTree(dir:'lib',includes: ['*.jar'])
     // dangdang config-toolkit & apache curator
 //    compile "com.dangdang:config-common:3.0.0-RELEASE"
 //    compile "com.dangdang:config-toolkit:3.2.2-RELEASE"
     //
 
+
 }
-//applicationDefaultJvmArgs = [
-//        "-DDEPLOY_ENV=local",
-////        "-Djava.net.preferIPv4Stack=true",
-////        "-Dcom.sun.management.jmxremote",
-//        "-Djava.rmi.server.hostname=127.0.0.1",
-//        "-Dcom.sun.management.jmxremote.port=9876",
-//        "-Dcom.sun.management.jmxremote.authenticate=false",
-//        "-Dcom.sun.management.jmxremote.ssl=false"
-//]
+//def mainClassName = "com.alibaba.dubbo.container.Main"
+//jar {
+//    manifest {
+//
+//        attributes "Main-Class": "$mainClassName"
+//        attributes(
+//                "Manifest-Version": 1.0,
+//                "Main-Class": "$mainClassName")
+//    }
+//
+//
+//        from {
+//        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+//    }
+//
+//}
+// dubbo  依赖jia包
+jar {
+    manifest {
+        attributes(
+                "Manifest-Version": 1.0,
+                "Main-Class": "com.alibaba.dubbo.container.Main",
+                "Class-Path": configurations.compile.collect { "libs/${it.name}" }.join(' '))
+    }
+}
+
+//jar {
+//    manifest {
+//        attributes(
+//                "Manifest-Version": 1.0,
+//                "Main-Class": "com.alibaba.dubbo.container.Main",
+//                "Class-Path": configurations.compile.collect { "lib/${it.name}" }.join(' '))
+//    }
+//}
+
+
+
 

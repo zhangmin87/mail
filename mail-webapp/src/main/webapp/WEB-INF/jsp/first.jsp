@@ -8,9 +8,6 @@
     <title>测试</title>
 </head>
 <body>
-<c:forEach var = "item" items="${demo}">
-    <tr>${item}</tr>
-</c:forEach>
-
+${demo}
 </body>
 </html>

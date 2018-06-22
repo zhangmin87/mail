@@ -22,11 +22,10 @@ public class DubboDemoimpl implements DubboDemo {
         return "stary hungry,stary folish";
     }
 
-    @Cacheable(value = "user",key = "#param1")
     @Override
     public String getTestRedis(String param1) {
         logger.info("break into");
-        String redisString = "hello zhang";
+        String redisString = "do you like you ";
         return redisString;
     }
 }
