@@ -23,6 +23,6 @@ public class TestjobHandler extends IJobHandler {
     public ReturnT<String> execute(String param) throws Exception {
         String str = "开始调度任务了哦";
 
-        return new ReturnT<>(String.format("共成功推送%s个",3));
+        return new ReturnT<>(String.format("共成功推送%s个",5));
     }
 }
