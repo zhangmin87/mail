@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="com.xxl.job.core.executor.XxlJobExecutor" init-method="start" destroy-method="destroy">
+        <property name="adminAddresses" value="http://127.0.0.1:8080/xxl-job-admin"/>
+        <property name="appName" value="cebOutboundApplicationExecutor"/>
+        <property name="port" value="9990"/>
+        <property name="accessToken" value=""/>
+        <property name="logPath" value="/data/applogs/xxl-job/ceb-outbound"/>
+        <property name="logRetentionDays" value="7"/>
+    </bean>
+</beans>
